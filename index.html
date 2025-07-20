@@ -648,7 +648,12 @@
                     <h4>✅ What you'll see:</h4>
                     <p>The project will open with a complete folder structure including Views, ViewModels, Models, Services, and Utilities folders, all organized following MVVM architecture.</p>
                 </div>
-               
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" 
+                         alt="Xcode Project Overview"
+                         onclick="openImageModal(this)">
+                    <p>Xcode Project Overview - File structure and organization</p>
+                </div>
 
                 <!-- Step 2 -->
                 <h3>Step 2: Add Swift Package Dependencies</h3>
@@ -672,14 +677,6 @@
                         <li>Google Sign-In iOS: <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">https://github.com/google/GoogleSignIn-iOS</div></li>
                     </ul>
                 </div>
-
-                 <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" 
-                         alt="Xcode Project Overview"
-                         onclick="openImageModal(this)">
-                    <p>Xcode Project Overview - File structure and organization</p>
-                </div>
-                
                 <div class="step-visual">
                     <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png" 
                          alt="Adding Package Dependencies"
@@ -939,15 +936,17 @@ struct AppTheme {
             
             // Generate remaining steps (6-33, skipping 23)
             let stepsHTML = '';
-            for (let i = 6; i <= 34; i++) {
+            for (let i = 6; i <= 33; i++) {
                 if (i === 23) continue; // Skip step 23
                 
-                const actualStep = i > 23 ? i - 1 : i; // Adjust numbering after skipping 23
-                const stepData = getStepData(actualStep);
-                const imageNumber = i > 23 ? i : i; // Use original image numbers, but skip 23
+                const stepData = getStepData(i);
+                const imageNumber = i - 1; // Bild ist immer eins niedriger als Step
+                
+                // Skip image 23 (weißes Bild)
+                const actualImageNumber = imageNumber >= 23 ? imageNumber + 1 : imageNumber;
                 
                 stepsHTML += `
-                    <h3>Step ${actualStep}: ${stepData.title}</h3>
+                    <h3>Step ${i}: ${stepData.title}</h3>
                     <div class="step-description">
                         <h4>🎯 What you'll do:</h4>
                         <p>${stepData.description}</p>
@@ -962,7 +961,7 @@ struct AppTheme {
                         ${stepData.note ? `<h4>📝 Important Note:</h4><p>${stepData.note}</p>` : ''}
                     </div>
                     <div class="step-visual">
-                        <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/${imageNumber}.png" 
+                        <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/${actualImageNumber}.png" 
                              alt="${stepData.alt}"
                              onclick="openImageModal(this)">
                         <p>${stepData.caption}</p>
