@@ -307,11 +307,12 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .step-visual img:hover {
             transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
         .step-visual p {
@@ -319,17 +320,6 @@
             color: #666;
             margin-top: 10px;
             font-size: 14px;
-        }
-
-        .image-fallback {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border: 2px dashed #007AFF;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #666;
-            font-style: italic;
-            margin: 20px 0;
         }
 
         /* Mobile Navigation */
@@ -551,7 +541,7 @@
                     <li>Google Developer Account (for Google Sign-In)</li>
                 </ul>
 
-                <!-- Step-by-step guide with corrected image URLs -->
+                <!-- Step-by-step guide with working image URLs -->
                 <h3>Step 1: Download and Open Project</h3>
                 <p>Download the iOS Authentication Template and open it in Xcode. You'll see the complete project structure with all necessary files organized.</p>
                 <div class="step-visual">
@@ -878,6 +868,64 @@ struct AppTheme {
 }
                 </div>
 
+                <h3>Adding Custom Colors</h3>
+                <p>You can easily add your brand colors:</p>
+                <div class="code-block">
+// Example: Adding your brand colors
+extension Color {
+    static let brandPrimary = Color(hex: "#007AFF")
+    static let brandSecondary = Color(hex: "#5856D6")
+    static let brandAccent = Color(hex: "#FF9500")
+    
+    // Custom color initializer from hex
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
+        }
+        
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue: Double(b) / 255,
+            opacity: Double(a) / 255
+        )
+    }
+}
+                </div>
+
+                <h3>Adding New Languages</h3>
+                <p>The template supports easy localization expansion:</p>
+                <ol class="step-list">
+                    <li><strong>Create new Localizable.strings file</strong> for your target language</li>
+                    <li><strong>In Xcode:</strong> File → New → File → Strings File</li>
+                    <li><strong>Name it:</strong> "Localizable.strings"</li>
+                    <li><strong>Localize:</strong> File Inspector → Localize → Add your language</li>
+                    <li><strong>Translate:</strong> Copy strings from English version and translate</li>
+                </ol>
+
+                <div class="code-block">
+// Example Localizable.strings (French)
+"welcome_title" = "Bienvenue";
+"email_placeholder" = "Adresse e-mail";
+"password_placeholder" = "Mot de passe";
+"sign_in_button" = "Se connecter";
+"sign_up_button" = "S'inscrire";
+"forgot_password_button" = "Mot de passe oublié?";
+                </div>
+
                 <div class="success">
                     <h4>✅ Pre-included Languages</h4>
                     <p>The template includes complete translations for:</p>
@@ -886,6 +934,31 @@ struct AppTheme {
                         <li><strong>German (Deutsch)</strong> - Complete translation</li>
                         <li><strong>Arabic (العربية)</strong> - Complete translation with RTL support</li>
                     </ul>
+                </div>
+
+                <h3>Customizing UI Components</h3>
+                <p>Modify button styles, text fields, and other UI elements:</p>
+                <div class="code-block">
+// Custom button style example
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(AppTheme.buttonFont)
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 56)
+            .background(
+                LinearGradient(
+                    colors: [AppTheme.primaryColor, AppTheme.secondaryColor],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .cornerRadius(AppConfig.cornerRadius)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
                 </div>
             </section>
 
@@ -934,9 +1007,37 @@ struct AppTheme {
                     </ul>
                 </div>
 
+                <h4>🔥 Firebase Connection Issues</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> App crashes on launch or authentication fails</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Verify GoogleService-Info.plist is correctly added</li>
+                        <li>✅ Check Firebase.configure() is called in App.swift</li>
+                        <li>✅ Ensure Bundle ID matches between Xcode and Firebase</li>
+                        <li>✅ Verify Firebase SDK is properly installed via SPM</li>
+                        <li>✅ Check internet connection and Firebase project status</li>
+                    </ul>
+                </div>
+
+                <h4>🛠️ Build Errors</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Project won't build or compile errors</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Clean build folder: Product → Clean Build Folder</li>
+                        <li>✅ Delete derived data: ~/Library/Developer/Xcode/DerivedData</li>
+                        <li>✅ Check Swift Package Manager dependencies</li>
+                        <li>✅ Verify minimum deployment target (iOS 15.0+)</li>
+                        <li>✅ Update to latest Xcode version (15.0+)</li>
+                        <li>✅ Restart Xcode and rebuild</li>
+                    </ul>
+                </div>
+
+                <h3>Debug Mode Setup</h3>
                 <div class="info">
-                    <h4>💡 Debug Tips</h4>
-                    <p>Enable debug logging for better troubleshooting:</p>
+                    <h4>💡 Enable Debug Logging</h4>
+                    <p>Add this code to your App.swift for better troubleshooting:</p>
                     <div class="code-block">
 #if DEBUG
 import Firebase
@@ -960,9 +1061,66 @@ init() {
             logger.info("❌ User signed out")
         }
     }
+    
+    // Monitor Firestore connection
+    let db = Firestore.firestore()
+    db.enableNetwork { error in
+        if let error = error {
+            logger.error("❌ Firestore connection failed: \(error.localizedDescription)")
+        } else {
+            logger.info("✅ Firestore connected successfully")
+        }
+    }
 }
 #endif
                     </div>
+                </div>
+
+                <h3>Testing Checklist</h3>
+                <div class="success">
+                    <h4>✅ Manual Testing Checklist</h4>
+                    <ul>
+                        <li>☐ Email registration with valid email</li>
+                        <li>☐ Email registration with invalid email format</li>
+                        <li>☐ Email verification process</li>
+                        <li>☐ Email login with correct credentials</li>
+                        <li>☐ Email login with incorrect credentials</li>
+                        <li>☐ Google Sign-In flow (on device)</li>
+                        <li>☐ Apple Sign-In flow (on device)</li>
+                        <li>☐ Password reset functionality</li>
+                        <li>☐ Username selection and validation</li>
+                        <li>☐ Logout functionality</li>
+                        <li>☐ Network error handling</li>
+                        <li>☐ UI responsiveness on different devices</li>
+                        <li>☐ Localization in all supported languages</li>
+                        <li>☐ Accessibility features (VoiceOver)</li>
+                        <li>☐ Dark mode compatibility</li>
+                    </ul>
+                </div>
+
+                <h3>Common Error Messages</h3>
+                <div class="code-block">
+// Common Firebase Auth error codes and solutions:
+
+// ERROR_INVALID_EMAIL
+"The email address is badly formatted."
+// Solution: Implement proper email validation
+
+// ERROR_USER_NOT_FOUND
+"There is no user record corresponding to this identifier."
+// Solution: Check if user exists before sign-in
+
+// ERROR_WRONG_PASSWORD
+"The password is invalid or the user does not have a password."
+// Solution: Implement password reset flow
+
+// ERROR_EMAIL_ALREADY_IN_USE
+"The email address is already in use by another account."
+// Solution: Redirect to sign-in or account recovery
+
+// ERROR_NETWORK_REQUEST_FAILED
+"A network error has occurred."
+// Solution: Check internet connection and retry
                 </div>
             </section>
 
@@ -986,10 +1144,58 @@ init() {
                     </ul>
                 </div>
 
+                <h3>Next Steps After Setup</h3>
+                <ol class="step-list">
+                    <li><strong>Test Thoroughly</strong> - Use the testing checklist to verify all features work correctly</li>
+                    <li><strong>Customize Branding</strong> - Update colors, fonts, and app name to match your brand</li>
+                    <li><strong>Add Your Features</strong> - Build your app's unique functionality on top of the authentication system</li>
+                    <li><strong>Configure Analytics</strong> - Set up Firebase Analytics and crash reporting</li>
+                    <li><strong>Prepare for Store</strong> - Add app icons, screenshots, and store listing content</li>
+                    <li><strong>Submit to App Store</strong> - Follow Apple's review guidelines for successful approval</li>
+                </ol>
+
+                <h3>Development Best Practices</h3>
+                <div class="info">
+                    <h4>🎯 Recommended Development Workflow</h4>
+                    <ul>
+                        <li><strong>Start with Authentication</strong> - Get authentication working first before adding features</li>
+                        <li><strong>Test on Real Devices</strong> - Always test authentication flows on physical devices</li>
+                        <li><strong>Use Version Control</strong> - Commit your working authentication setup before modifications</li>
+                        <li><strong>Follow iOS Guidelines</strong> - Adhere to Apple's Human Interface Guidelines</li>
+                        <li><strong>Handle Edge Cases</strong> - Test offline scenarios and network failures</li>
+                        <li><strong>Monitor Performance</strong> - Use Xcode Instruments to optimize app performance</li>
+                    </ul>
+                </div>
+
+                <h3>Firebase Security Best Practices</h3>
+                <div class="warning">
+                    <h4>🔒 Important Security Considerations</h4>
+                    <ul>
+                        <li><strong>Keep GoogleService-Info.plist Secure</strong> - Don't commit to public repositories</li>
+                        <li><strong>Use Environment-Specific Configs</strong> - Separate dev/staging/production Firebase projects</li>
+                        <li><strong>Review Firestore Rules</strong> - Ensure users can only access their own data</li>
+                        <li><strong>Enable App Check</strong> - Protect your Firebase resources from abuse</li>
+                        <li><strong>Monitor Usage</strong> - Set up billing alerts and usage monitoring</li>
+                        <li><strong>Regular Security Reviews</strong> - Periodically review and update security rules</li>
+                    </ul>
+                </div>
+
                 <div class="success">
                     <h4>🎉 Congratulations!</h4>
                     <p>You now have a professional, production-ready authentication system that would typically take weeks to develop from scratch. This template provides a solid foundation that follows iOS best practices and Firebase security guidelines.</p>
                     <p><strong>Focus on building your unique app features</strong> while the authentication handles user management seamlessly. Your users will enjoy a smooth, secure onboarding experience across all authentication methods.</p>
+                </div>
+
+                <div class="info">
+                    <h4>📱 Ready for the App Store</h4>
+                    <p>This template is designed to meet App Store review guidelines and includes:</p>
+                    <ul>
+                        <li>Privacy-compliant authentication flows</li>
+                        <li>Proper error handling and user feedback</li>
+                        <li>Accessibility support for all users</li>
+                        <li>Responsive design for all iPhone sizes</li>
+                        <li>Professional UI following iOS design principles</li>
+                    </ul>
                 </div>
             </section>
         </div>
@@ -1096,16 +1302,15 @@ init() {
                 observer.observe(section);
             });
             
-            // Add image error handling for better UX
+            // Add image loading effects
             document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('error', function() {
-                    handleImageError(this);
-                });
-                
-                // Add loading animation
                 img.addEventListener('load', function() {
                     this.style.opacity = '1';
                     this.style.transform = 'scale(1)';
+                });
+                
+                img.addEventListener('error', function() {
+                    console.log(`Failed to load image: ${this.src}`);
                 });
                 
                 // Initially hide images until loaded
@@ -1133,7 +1338,7 @@ init() {
                 `;
                 
                 copyButton.addEventListener('click', () => {
-                    navigator.clipboard.writeText(block.textContent);
+                    navigator.clipboard.writeText(block.textContent.replace('📋 Copy', '').trim());
                     copyButton.innerHTML = '✅ Copied!';
                     setTimeout(() => {
                         copyButton.innerHTML = '📋 Copy';
@@ -1151,27 +1356,6 @@ init() {
                 block.appendChild(copyButton);
             });
         });
-        
-        // Function to handle image loading errors
-        function handleImageError(img) {
-            img.style.display = 'none';
-            const fallbackText = document.createElement('div');
-            fallbackText.className = 'image-fallback';
-            fallbackText.innerHTML = `
-                <div style="font-size: 48px; margin-bottom: 10px;">📱</div>
-                <div><strong>Screenshot wird geladen...</strong></div>
-                <div style="font-size: 14px; margin-top: 10px; color: #007AFF;">
-                    ${img.alt || 'Setup Screenshot'}
-                </div>
-                <div style="font-size: 12px; margin-top: 5px; opacity: 0.7;">
-                    Bild sollte hier angezeigt werden: ${img.src.split('/').pop()}
-                </div>
-                <div style="font-size: 11px; margin-top: 8px; color: #666;">
-                    Prüfe Repository-URL: <a href="${img.src}" target="_blank" style="color: #007AFF;">Link öffnen</a>
-                </div>
-            `;
-            img.parentNode.insertBefore(fallbackText, img);
-        }
     </script>
 </body>
 </html>
