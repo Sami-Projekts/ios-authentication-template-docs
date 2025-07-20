@@ -1,4 +1,214 @@
-<!DOCTYPE html>
+<!-- Step 1 -->
+                <h3>Step 1: Download and Open Project</h3>
+                <div class="step-description">
+                    <h4>📱 What you'll do:</h4>
+                    <p>Download the iOS Authentication Template from CodeCanyon and open it in Xcode. This template includes all the necessary files and structure for a complete authentication system.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Download the template ZIP file from your CodeCanyon purchase</li>
+                        <li>Extract the ZIP file to your desired location</li>
+                        <li>Open Xcode 15 or later</li>
+                        <li>Navigate to the extracted folder</li>
+                        <li>Double-click the .xcodeproj file to open the project</li>
+                    </ul>
+                    
+                    <h4>✅ What you'll see:</h4>
+                    <p>The project will open with a complete folder structure including Views, ViewModels, Models, Services, and Utilities folders, all organized following MVVM architecture.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <h3>Step 2: Access Package Dependencies</h3>
+                <div class="step-description">
+                    <h4>📦 What you'll do:</h4>
+                    <p>Navigate to Package Dependencies in Xcode to add the required Firebase and Google Sign-In packages.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In Xcode, select your project in the navigator</li>
+                        <li>Click on your target under "TARGETS"</li>
+                        <li>Go to the "Package Dependencies" tab</li>
+                        <li>Click the "+" button to add a new package</li>
+                        <li>You'll see the "Add Package Dependency" window</li>
+                    </ul>
+                    
+                    <h4>📋 Required packages:</h4>
+                    <p>You'll need to add these two packages in the next steps:</p>
+                    <ul>
+                        <li>Firebase iOS SDK</li>
+                        <li>Google Sign-In iOS</li>
+                    </ul>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png"
+                         alt="Package Dependencies in Xcode"
+                         onclick="openImageModal(this)">
+                    <p>Accessing Package Dependencies in Xcode with + button</p>
+                </div>
+
+                <!-- Step 3 -->
+                <h3>Step 3: Add Firebase iOS SDK</h3>
+                <div class="step-description">
+                    <h4>🔥 What you'll do:</h4>
+                    <p>Add the Firebase iOS SDK URL to your project to enable Firebase authentication and Firestore database functionality.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In the "Add Package Dependency" window, paste the Firebase URL</li>
+                        <li>Enter: https://github.com/firebase/firebase-ios-sdk</li>
+                        <li>Click "Add Package" and wait for Xcode to resolve the package</li>
+                        <li>The package will be validated and ready for product selection</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">
+                        📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
+                    </div>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png"
+                         alt="Adding Firebase SDK URL"
+                         onclick="openImageModal(this)">
+                    <p>Entering Firebase iOS SDK repository URL</p>
+                </div>
+
+                <!-- Step 4 -->
+                <h3>Step 4: Select Firebase Products</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Choose the specific Firebase products your authentication system needs.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>After Xcode resolves the Firebase package, you'll see a list of available products</li>
+                        <li>Select <strong>FirebaseAuth</strong> - Essential for authentication</li>
+                        <li>Select <strong>FirebaseFirestore</strong> - For storing user data and usernames</li>
+                        <li>Select <strong>FirebaseStorage</strong> - For profile pictures (optional)</li>
+                        <li>Click "Add Package" to add these to your project</li>
+                    </ul>
+                    
+                    <h4>⚠️ Important:</h4>
+                    <p>Only select these three products to keep your app size manageable!</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
+                         alt="Firebase Products Selection"
+                         onclick="openImageModal(this)">
+                    <p>Selecting Firebase products: FirebaseAuth, FirebaseFirestore, and FirebaseStorage</p>
+                </div>
+
+                <!-- Step 5 -->
+                <h3>Step 5: Add Google Sign-In SDK</h3>
+                <div class="step-description">
+                    <h4>🌐 What you'll do:</h4>
+                    <p>Add the Google Sign-In iOS SDK to enable Google authentication in your app.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Click the "+" button again to add another package</li>
+                        <li>Enter the Google Sign-In iOS SDK URL</li>
+                        <li>Paste: https://github.com/google/GoogleSignIn-iOS</li>
+                        <li>Click "Add Package" and wait for resolution</li>
+                        <li>Select the GoogleSignIn product in the next step</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">
+                        📋 Copy Google Sign-In URL: https://github.com/google/GoogleSignIn-iOS
+                    </div>
+                    
+                    <h4>✅ Verification:</h4>
+                    <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
+                         alt="Google Sign-In SDK URL"
+                         onclick="openImageModal(this)">
+                    <p>Adding Google Sign-In iOS SDK repository URL</p>
+                </div>
+
+                <!-- Step 6 -->
+                <h3>Step 6: Create Firebase Project & Register iOS App</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Create a Firebase project and register your iOS app with the correct Bundle ID.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Go to https://console.firebase.google.com/ and create a new project</li>
+                        <li>Click the iOS icon to add an iOS app</li>
+                        <li>Enter your Bundle ID exactly as it appears in Xcode</li>
+                        <li>Make sure the Bundle ID matches perfectly (case-sensitive)</li>
+                        <li>Click 'Register app' to continue</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://console.firebase.google.com/')">
+                        📋 Copy Firebase Console URL: https://console.firebase.google.com/
+                    </div>
+                    
+                    <h4>📝 Critical Note:</h4>
+                    <p>The Bundle ID must be identical to your Xcode project's Bundle Identifier!</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
+                         alt="Google Sign-In Products Selection"
+                         onclick="openImageModal(this)">
+                    <p>Selecting Google Sign-In products and completing package installation</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/6.png" 
+                         alt="Register iOS App in Firebase"
+                         onclick="openImageModal(this)">
+                    <p>Registering iOS app in Firebase with Bundle ID configuration</p>
+                </div>
+
+                <!-- Step 7 -->
+                <h3>Step 7: Find Bundle ID in Xcode</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Locate your app's Bundle Identifier in Xcode to ensure it matches Firebase configuration.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In Xcode, select your project in the navigator</li>
+                        <li>Click on your target under "TARGETS"</li>
+                        <li>Go to the "General" tab</li>
+                        <li>Find "Bundle Identifier" in the Identity section</li>
+                        <li>Copy this exact value to use in Firebase</li>
+                    </ul>
+                    
+                    <h4>📝 Important Note:</h4>
+                    <p>This Bundle ID must match exactly between Xcode and Firebase - including capitalization and punctuation.</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/7.png" 
+                         alt="Bundle ID in Xcode"
+                         onclick="openImageModal(this)">
+                    <p>Finding Bundle Identifier in Xcode General settings</p>
+                </div>
+
+                <!-- Step 8 -->
+                <h3>Step 8: Authentication Methods Overview</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>See the three main authentication methods that will be configured in Firebase.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Navigate to Firebase Console → Authentication → Sign-in method</li>
+                        <li>You'll see a list of available authentication providers</li>
+                        <li>We will enable three main methods: Email/Password, Google, and Apple</li>
+                        <li>These three methods provide comprehensive authentication options</li>
+                        <li>Each method will be configured in the following steps</li>
+                    </ul>
+                    
+                    <h4>📝 Important Note:</h4>
+                    <p>These three authentication methods cover all major user preferences: basic email/password, social login with Google, and privacy-focused Apple Sign-In.</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/8.png" 
+                         alt="Authentication Methods in Firebase"
+                         onclick="openImageModal(this)">
+                    <p>Firebase Sign-in methods showing Email/Password, Google, and Apple authentication options</p>
+                </div><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
