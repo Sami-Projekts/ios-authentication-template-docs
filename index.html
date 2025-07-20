@@ -111,7 +111,9 @@
         .section h3 {
             font-size: 1.8rem;
             color: #333;
-            margin: 30px 0 15px 0;
+            margin: 40px 0 20px 0;
+            border-left: 4px solid #007AFF;
+            padding-left: 15px;
         }
 
         .section h4 {
@@ -160,6 +162,59 @@
             font-family: 'Monaco', 'Consolas', monospace;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
+        }
+
+        .step-description {
+            background: #f8f9fa;
+            border-left: 4px solid #007AFF;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .step-description h4 {
+            color: #007AFF;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .step-description p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .step-description ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        .step-description li {
+            margin: 5px 0;
+        }
+
+        .copy-text {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 14px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .copy-text:hover {
+            background: #bbdefb;
+        }
+
+        .copy-text::after {
+            content: "📋 Click to copy";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #1976d2;
         }
 
         .step-list {
@@ -296,41 +351,21 @@
             color: white;
         }
 
-        /* OPTIMIZED IMAGE STYLES */
         .step-visual {
             margin: 20px 0;
             text-align: center;
-            min-height: 200px; /* Reserve space to prevent layout shift */
+            min-height: 200px;
         }
 
         .step-visual img {
             width: 100%;
-            max-width: 700px; /* Smaller max-width for better performance */
+            max-width: 700px;
             height: auto;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
-            
-            /* Lazy loading placeholder */
-            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
-                        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
-                        linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
-                        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-            animation: loading 2s linear infinite;
-        }
-
-        @keyframes loading {
-            0% { background-position: 0 0, 0 10px, 10px -10px, -10px 0px; }
-            100% { background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px; }
-        }
-
-        .step-visual img.loaded {
-            animation: none;
-            background: none;
         }
 
         .step-visual img:hover {
@@ -345,28 +380,6 @@
             font-size: 14px;
         }
 
-        /* Loading status indicator */
-        .loading-status {
-            display: inline-block;
-            padding: 5px 10px;
-            background: #e3f2fd;
-            color: #1976d2;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-
-        .loading-status.loaded {
-            background: #e8f5e8;
-            color: #2e7d32;
-        }
-
-        .loading-status.error {
-            background: #ffebee;
-            color: #c62828;
-        }
-
-        /* Image modal for full-size viewing */
         .image-modal {
             display: none;
             position: fixed;
@@ -397,16 +410,6 @@
             font-size: 40px;
             cursor: pointer;
             z-index: 10001;
-        }
-
-        /* Performance optimizations */
-        img[data-src] {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        img[data-src].loaded {
-            opacity: 1;
         }
 
         /* Mobile Navigation */
@@ -627,106 +630,154 @@
                     <li>Google Developer Account (for Google Sign-In)</li>
                 </ul>
 
-                <!-- Optimized step-by-step guide -->
-                <h3>Step 1: Download and Open Project <span id="status-1" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Download the iOS Authentication Template and open it in Xcode. You'll see the complete project structure with all necessary files organized.</p>
+                <!-- Step 1 -->
+                <h3>Step 1: Download and Open Project</h3>
+                <div class="step-description">
+                    <h4>📱 What you'll do:</h4>
+                    <p>Download the iOS Authentication Template from CodeCanyon and open it in Xcode. This template includes all the necessary files and structure for a complete authentication system.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Download the template ZIP file from your CodeCanyon purchase</li>
+                        <li>Extract the ZIP file to your desired location</li>
+                        <li>Open Xcode 15 or later</li>
+                        <li>Navigate to the extracted folder</li>
+                        <li>Double-click the .xcodeproj file to open the project</li>
+                    </ul>
+                    
+                    <h4>✅ What you'll see:</h4>
+                    <p>The project will open with a complete folder structure including Views, ViewModels, Models, Services, and Utilities folders, all organized following MVVM architecture.</p>
+                </div>
                 <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" 
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" 
                          alt="Xcode Project Overview"
                          onclick="openImageModal(this)">
                     <p>Xcode Project Overview - File structure and organization</p>
                 </div>
 
-                <h3>Step 2: Add Swift Package Dependencies <span id="status-2" class="loading-status">⏳ Image loading...</span></h3>
-                <p>First, we need to add the Firebase iOS SDK and Google Sign-In packages to your project.</p>
+                <!-- Step 2 -->
+                <h3>Step 2: Add Swift Package Dependencies</h3>
+                <div class="step-description">
+                    <h4>📦 What you'll do:</h4>
+                    <p>Add the required Firebase iOS SDK and Google Sign-In packages to your project using Swift Package Manager.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In Xcode, select your project in the navigator</li>
+                        <li>Click on your target under "TARGETS"</li>
+                        <li>Go to the "Package Dependencies" tab</li>
+                        <li>Click the "+" button to add a new package</li>
+                        <li>You'll see the "Add Package Dependency" window</li>
+                    </ul>
+                    
+                    <h4>📋 Required packages:</h4>
+                    <p>You'll need to add these two packages in the next steps:</p>
+                    <ul>
+                        <li>Firebase iOS SDK: <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">https://github.com/firebase/firebase-ios-sdk</div></li>
+                        <li>Google Sign-In iOS: <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">https://github.com/google/GoogleSignIn-iOS</div></li>
+                    </ul>
+                </div>
                 <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png" 
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png" 
                          alt="Adding Package Dependencies"
                          onclick="openImageModal(this)">
                     <p>Adding Package Dependencies in Xcode Project Settings</p>
                 </div>
 
-                <h3>Step 3: Configure Firebase URL <span id="status-3" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Add the Firebase iOS SDK URL: <code>https://github.com/firebase/firebase-ios-sdk</code></p>
+                <!-- Step 3 -->
+                <h3>Step 3: Add Firebase iOS SDK</h3>
+                <div class="step-description">
+                    <h4>🔥 What you'll do:</h4>
+                    <p>Add the Firebase iOS SDK URL to your project to enable Firebase authentication and Firestore database functionality.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In the "Add Package Dependency" window, paste the Firebase URL</li>
+                        <li>Click "Add Package" and wait for Xcode to resolve the package</li>
+                        <li>In the package selection window, choose these Firebase products:</li>
+                    </ul>
+                    
+                    <h4>📦 Required Firebase Products:</h4>
+                    <ul>
+                        <li>✅ <strong>FirebaseAuth</strong> - For user authentication</li>
+                        <li>✅ <strong>FirebaseFirestore</strong> - For user data storage</li>
+                        <li>✅ <strong>FirebaseStorage</strong> - For profile pictures (optional)</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">
+                        📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
+                    </div>
+                </div>
                 <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
                          alt="Firebase SDK URL"
                          onclick="openImageModal(this)">
                     <p>Entering Firebase iOS SDK repository URL</p>
                 </div>
 
-                <h3>Step 4: Select Firebase Products <span id="status-4" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Choose the required Firebase products: FirebaseAuth, FirebaseFirestore, and FirebaseStorage.</p>
+                <!-- Continue with more steps... Let me add a few more key ones -->
+
+                <!-- Step 4 -->
+                <h3>Step 4: Select Firebase Products</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Choose the specific Firebase products your authentication system needs.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>After Xcode resolves the Firebase package, you'll see a list of available products</li>
+                        <li>Select <strong>FirebaseAuth</strong> - Essential for authentication</li>
+                        <li>Select <strong>FirebaseFirestore</strong> - For storing user data and usernames</li>
+                        <li>Optionally select <strong>FirebaseStorage</strong> - For profile pictures</li>
+                        <li>Click "Add Package" to add these to your project</li>
+                    </ul>
+                    
+                    <h4>⚠️ Important:</h4>
+                    <p>Don't add all Firebase products as they will increase your app size. Only add what you need!</p>
+                </div>
                 <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
                          alt="Firebase Products Selection"
                          onclick="openImageModal(this)">
                     <p>Selecting Firebase products for authentication and data storage</p>
                 </div>
 
-                <h3>Step 5: Add Google Sign-In SDK <span id="status-5" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Add the Google Sign-In iOS SDK: <code>https://github.com/google/GoogleSignIn-iOS</code></p>
+                <!-- Step 5 -->
+                <h3>Step 5: Add Google Sign-In SDK</h3>
+                <div class="step-description">
+                    <h4>🌐 What you'll do:</h4>
+                    <p>Add the Google Sign-In iOS SDK to enable Google authentication in your app.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Click the "+" button again to add another package</li>
+                        <li>Paste the Google Sign-In iOS SDK URL</li>
+                        <li>Click "Add Package" and wait for resolution</li>
+                        <li>Select the GoogleSignIn product</li>
+                        <li>Click "Add Package" to complete the installation</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">
+                        📋 Copy Google Sign-In URL: https://github.com/google/GoogleSignIn-iOS
+                    </div>
+                    
+                    <h4>✅ Verification:</h4>
+                    <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
+                </div>
                 <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
                          alt="Google Sign-In SDK"
                          onclick="openImageModal(this)">
                     <p>Adding Google Sign-In iOS SDK to the project</p>
                 </div>
 
-                <!-- Continue with remaining steps... I'll add a few more key ones -->
-
-                <h3>Step 6: Create Firebase Project <span id="status-6" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Go to the Firebase Console and create a new project for your iOS app.</p>
-                <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/6.png" 
-                         alt="Firebase Console"
-                         onclick="openImageModal(this)">
-                    <p>Firebase Console - Creating a new project</p>
-                </div>
-
-                <h3>Step 7: Add iOS App to Firebase <span id="status-7" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Click "Add app" and select iOS. Enter your Bundle Identifier from Xcode.</p>
-                <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/7.png" 
-                         alt="Add iOS App"
-                         onclick="openImageModal(this)">
-                    <p>Adding iOS app to Firebase project</p>
-                </div>
-
-                <h3>Step 8: Configure Bundle Identifier <span id="status-8" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Enter your app's Bundle ID (e.g., com.yourcompany.authtemplate) exactly as it appears in Xcode.</p>
-                <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/8.png" 
-                         alt="Bundle Identifier"
-                         onclick="openImageModal(this)">
-                    <p>Configuring Bundle Identifier in Firebase</p>
-                </div>
-
-                <h3>Step 9: Download GoogleService-Info.plist <span id="status-9" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Download the GoogleService-Info.plist file from Firebase. This contains your app's configuration.</p>
-                <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/9.png" 
-                         alt="Download plist"
-                         onclick="openImageModal(this)">
-                    <p>Downloading GoogleService-Info.plist configuration file</p>
-                </div>
-
-                <h3>Step 10: Add plist to Xcode Project <span id="status-10" class="loading-status">⏳ Image loading...</span></h3>
-                <p>Drag the GoogleService-Info.plist file into your Xcode project root, ensuring "Add to target" is checked.</p>
-                <div class="step-visual">
-                    <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/10.png" 
-                         alt="Add plist to Xcode"
-                         onclick="openImageModal(this)">
-                    <p>Adding GoogleService-Info.plist to Xcode project</p>
-                </div>
-
                 <!-- Load More Button for remaining steps -->
                 <div style="text-align: center; margin: 40px 0;">
                     <button class="btn btn-primary" onclick="loadRemainingSteps()" id="load-more-btn">
-                        📱 Load Remaining Steps (11-34)
+                        📱 Load Remaining Steps (6-33) 
                     </button>
                     <p style="margin-top: 10px; color: #666; font-size: 14px;">
-                        Click to load the remaining 24 setup steps
+                        Click to load the remaining 28 detailed setup steps
                     </p>
                 </div>
 
@@ -740,7 +791,7 @@
                 </div>
             </section>
 
-            <!-- Remaining sections... -->
+            <!-- Customization -->
             <section id="customization" class="section">
                 <h2>🎨 Easy Customization</h2>
                 
@@ -762,6 +813,39 @@ struct AppConfig {
     // UI Settings
     static let cornerRadius: CGFloat = 16
     static let animationDuration: Double = 0.8
+    static let defaultAnimationSpeed: Double = 0.6
+    
+    // Feature Toggles
+    static let enableUsernameSelection = true
+    static let enableProfilePictures = false
+    static let enableBiometricAuth = false
+}
+                </div>
+
+                <h3>Theme Customization</h3>
+                <p>Change colors and design in <code>AppTheme.swift</code>:</p>
+                <div class="code-block">
+struct AppTheme {
+    // Brand Colors - Customize these to match your brand
+    static let primaryColor: Color = Color(red: 0.0, green: 0.48, blue: 1.0)     // iOS Blue
+    static let secondaryColor: Color = Color(red: 0.35, green: 0.34, blue: 0.84)  // Purple
+    static let accentColor: Color = Color(red: 1.0, green: 0.58, blue: 0.0)      // Orange
+    
+    // Background Colors
+    static let backgroundColor: Color = .black
+    static let cardBackground: Color = Color(.systemGray6)
+    static let textFieldBackground: Color = Color(.systemGray5)
+    
+    // Text Colors
+    static let primaryText: Color = .white
+    static let secondaryText: Color = .gray
+    static let placeholderText: Color = Color(.systemGray3)
+    
+    // Fonts
+    static let titleFont: Font = .system(size: 28, weight: .bold, design: .rounded)
+    static let bodyFont: Font = .system(size: 16, weight: .medium)
+    static let buttonFont: Font = .system(size: 17, weight: .semibold)
+    static let captionFont: Font = .system(size: 13, weight: .regular)
 }
                 </div>
 
@@ -772,6 +856,52 @@ struct AppConfig {
                         <li><strong>English</strong> - Primary language</li>
                         <li><strong>German (Deutsch)</strong> - Complete translation</li>
                         <li><strong>Arabic (العربية)</strong> - Complete translation with RTL support</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section id="troubleshooting" class="section">
+                <h2>🔧 Troubleshooting Guide</h2>
+                
+                <h3>Common Issues & Solutions</h3>
+                
+                <h4>🚫 Google Sign-In Not Working</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Google Sign-In button doesn't respond or shows error</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Verify REVERSED_CLIENT_ID in URL schemes matches GoogleService-Info.plist</li>
+                        <li>✅ Ensure GoogleService-Info.plist is added to project target</li>
+                        <li>✅ Check Google Sign-In is enabled in Firebase Console</li>
+                        <li>✅ Test on physical device (not simulator)</li>
+                        <li>✅ Verify Bundle ID matches exactly between Xcode and Firebase</li>
+                    </ul>
+                </div>
+
+                <h4>🍎 Apple Sign-In Failing</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Apple Sign-In shows error or doesn't appear</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Check "Sign in with Apple" capability is added in Xcode</li>
+                        <li>✅ Verify App ID is configured in Apple Developer Portal</li>
+                        <li>✅ Test on physical device with valid Apple ID</li>
+                        <li>✅ Ensure proper provisioning profile is selected</li>
+                        <li>✅ Check Apple Sign-In is enabled in Firebase Console</li>
+                    </ul>
+                </div>
+
+                <h4>📧 Email Verification Issues</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Verification emails not received or links don't work</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Check spam/junk folder in email client</li>
+                        <li>✅ Verify Firebase email templates are properly configured</li>
+                        <li>✅ Check authorized domains in Firebase Console</li>
+                        <li>✅ Ensure Firebase project is properly set up</li>
+                        <li>✅ Test with different email providers (Gmail, iCloud, etc.)</li>
                     </ul>
                 </div>
             </section>
@@ -796,62 +926,6 @@ struct AppConfig {
     </div>
 
     <script>
-        // Lazy loading implementation
-        function lazyLoad() {
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        const stepNumber = getStepNumber(img);
-                        
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        
-                        img.onload = () => {
-                            updateStatus(stepNumber, 'loaded');
-                            img.style.opacity = 1;
-                        };
-                        
-                        img.onerror = () => {
-                            updateStatus(stepNumber, 'error');
-                            img.style.opacity = 0.5;
-                        };
-                        
-                        img.removeAttribute('data-src');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px'
-            });
-
-            images.forEach(img => imageObserver.observe(img));
-        }
-
-        function getStepNumber(img) {
-            const src = img.dataset.src || img.src;
-            const match = src.match(/\/(\d+)\.png/);
-            return match ? match[1] : null;
-        }
-
-        function updateStatus(stepNumber, status) {
-            const statusElement = document.getElementById(`status-${stepNumber}`);
-            if (statusElement) {
-                statusElement.className = `loading-status ${status}`;
-                switch(status) {
-                    case 'loaded':
-                        statusElement.innerHTML = '✅ Image loaded';
-                        break;
-                    case 'error':
-                        statusElement.innerHTML = '❌ Image failed to load';
-                        break;
-                    default:
-                        statusElement.innerHTML = '⏳ Image loading...';
-                }
-            }
-        }
-
         // Load remaining steps functionality
         function loadRemainingSteps() {
             const container = document.getElementById('remaining-steps');
@@ -860,15 +934,32 @@ struct AppConfig {
             loadButton.innerHTML = '⏳ Loading...';
             loadButton.disabled = true;
             
-            // Generate remaining steps (11-34)
+            // Generate remaining steps (6-33, skipping 23)
             let stepsHTML = '';
-            for (let i = 11; i <= 34; i++) {
-                const stepData = getStepData(i);
+            for (let i = 6; i <= 34; i++) {
+                if (i === 23) continue; // Skip step 23
+                
+                const actualStep = i > 23 ? i - 1 : i; // Adjust numbering after skipping 23
+                const stepData = getStepData(actualStep);
+                const imageNumber = i > 23 ? i : i; // Use original image numbers, but skip 23
+                
                 stepsHTML += `
-                    <h3>Step ${i}: ${stepData.title} <span id="status-${i}" class="loading-status">⏳ Image loading...</span></h3>
-                    <p>${stepData.description}</p>
+                    <h3>Step ${actualStep}: ${stepData.title}</h3>
+                    <div class="step-description">
+                        <h4>🎯 What you'll do:</h4>
+                        <p>${stepData.description}</p>
+                        
+                        <h4>🔧 Detailed Instructions:</h4>
+                        <ul>
+                            ${stepData.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                        </ul>
+                        
+                        ${stepData.copyText ? `<div class="copy-text" onclick="copyToClipboard('${stepData.copyText}')">${stepData.copyText}</div>` : ''}
+                        
+                        ${stepData.note ? `<h4>📝 Important Note:</h4><p>${stepData.note}</p>` : ''}
+                    </div>
                     <div class="step-visual">
-                        <img data-src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/${i}.png" 
+                        <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/${imageNumber}.png" 
                              alt="${stepData.alt}"
                              onclick="openImageModal(this)">
                         <p>${stepData.caption}</p>
@@ -879,165 +970,84 @@ struct AppConfig {
             container.innerHTML = stepsHTML;
             container.style.display = 'block';
             loadButton.style.display = 'none';
-            
-            // Initialize lazy loading for new images
-            lazyLoad();
         }
 
         function getStepData(stepNumber) {
             const steps = {
-                11: {
-                    title: "Enable Authentication in Firebase",
-                    description: "In Firebase Console, go to Authentication and click \"Get started\".",
-                    alt: "Enable Authentication",
-                    caption: "Enabling Authentication in Firebase Console"
+                6: {
+                    title: "Create Firebase Project",
+                    description: "Go to the Firebase Console and create a new project for your iOS app.",
+                    instructions: [
+                        "Open your web browser and go to https://console.firebase.google.com/",
+                        "Click 'Create a project' button",
+                        "Enter your project name (e.g., 'MyApp Authentication')",
+                        "Choose whether to enable Google Analytics (recommended)",
+                        "Accept the Firebase terms and click 'Create project'",
+                        "Wait for the project to be created (usually takes 30-60 seconds)"
+                    ],
+                    copyText: "https://console.firebase.google.com/",
+                    note: "Choose a descriptive project name as you cannot change it later.",
+                    alt: "Firebase Console",
+                    caption: "Firebase Console - Creating a new project"
                 },
-                12: {
-                    title: "Configure Sign-in Methods",
-                    description: "Go to \"Sign-in method\" tab and enable Email/Password authentication.",
-                    alt: "Sign-in Methods",
-                    caption: "Configuring Email/Password sign-in method"
+                7: {
+                    title: "Add iOS App to Firebase",
+                    description: "Register your iOS app with Firebase to establish the connection.",
+                    instructions: [
+                        "In your new Firebase project, click 'Add app'",
+                        "Select the iOS platform (Apple logo)",
+                        "Enter your iOS Bundle ID exactly as it appears in Xcode",
+                        "Add an app nickname (optional, for your reference)",
+                        "Leave App Store ID empty for now",
+                        "Click 'Register app' to continue"
+                    ],
+                    note: "The Bundle ID must match exactly between Xcode and Firebase, or authentication will fail.",
+                    alt: "Add iOS App",
+                    caption: "Adding iOS app to Firebase project"
                 },
-                13: {
-                    title: "Enable Google Sign-In",
-                    description: "Enable Google sign-in provider and configure the OAuth settings.",
-                    alt: "Google Sign-In Config",
-                    caption: "Enabling and configuring Google Sign-In provider"
-                },
-                14: {
-                    title: "Set Support Email",
-                    description: "Configure your support email address for authentication flows.",
-                    alt: "Support Email",
-                    caption: "Setting up support email for authentication"
-                },
-                15: {
-                    title: "Configure Firestore Database",
-                    description: "Go to Firestore Database and create a new database in production mode.",
-                    alt: "Firestore Setup",
-                    caption: "Creating Firestore Database for user data storage"
-                },
-                16: {
-                    title: "Set Database Location",
-                    description: "Choose a database location close to your users for better performance.",
-                    alt: "Database Location",
-                    caption: "Selecting Firestore database location"
-                },
-                17: {
-                    title: "Configure Security Rules",
-                    description: "Set up Firestore security rules to protect user data and ensure proper access control.",
-                    alt: "Security Rules",
-                    caption: "Configuring Firestore security rules"
-                },
-                18: {
-                    title: "Add URL Scheme for Google Sign-In",
-                    description: "In Xcode, go to your target's Info tab and add URL Types for Google Sign-In.",
-                    alt: "URL Scheme",
-                    caption: "Adding URL scheme for Google Sign-In integration"
-                },
-                19: {
-                    title: "Configure REVERSED_CLIENT_ID",
-                    description: "Add the REVERSED_CLIENT_ID from GoogleService-Info.plist as a URL scheme.",
-                    alt: "Client ID Config",
-                    caption: "Configuring REVERSED_CLIENT_ID for Google authentication"
-                },
-                20: {
-                    title: "Enable Sign in with Apple Capability",
-                    description: "In Signing & Capabilities, add \"Sign in with Apple\" capability.",
-                    alt: "Apple Sign-In Capability",
-                    caption: "Adding Sign in with Apple capability to the project"
-                },
-                21: {
-                    title: "Configure App ID in Developer Portal",
-                    description: "Go to Apple Developer Portal and enable Sign in with Apple for your App ID.",
-                    alt: "Developer Portal App ID",
-                    caption: "Configuring App ID in Apple Developer Portal"
-                },
-                22: {
-                    title: "Enable Apple Sign-In in Firebase",
-                    description: "Back in Firebase Console, enable Apple as a sign-in provider in Authentication settings.",
-                    alt: "Apple Sign-In Firebase",
-                    caption: "Enabling Apple Sign-In provider in Firebase"
-                },
-                23: {
-                    title: "Configure Apple Service ID",
-                    description: "Set up Apple Service ID and configure the domain and return URLs for web authentication.",
-                    alt: "Apple Service ID",
-                    caption: "Configuring Apple Service ID for authentication"
-                },
-                24: {
-                    title: "Test Firebase Connection",
-                    description: "Build and run your project to test the Firebase connection and verify all configurations.",
-                    alt: "Test Firebase",
-                    caption: "Testing Firebase connection in Xcode console"
-                },
-                25: {
-                    title: "Configure App Theme",
-                    description: "Customize your app's theme by modifying colors and styles in AppTheme.swift.",
-                    alt: "App Theme Config",
-                    caption: "Customizing app theme and color scheme"
-                },
-                26: {
-                    title: "Update App Configuration",
-                    description: "Modify AppConfig.swift to set your app name, version, and feature toggles.",
-                    alt: "App Config",
-                    caption: "Updating app configuration settings"
-                },
-                27: {
-                    title: "Test Email Authentication",
-                    description: "Test the email registration and login functionality with different email addresses.",
-                    alt: "Email Auth Test",
-                    caption: "Testing email authentication flow"
-                },
-                28: {
-                    title: "Test Email Verification",
-                    description: "Verify that email verification emails are sent and the verification process works correctly.",
-                    alt: "Email Verification",
-                    caption: "Testing email verification functionality"
-                },
-                29: {
-                    title: "Test Google Sign-In",
-                    description: "Test Google Sign-In on a physical device (not simulator) to ensure proper integration.",
-                    alt: "Google Sign-In Test",
-                    caption: "Testing Google Sign-In authentication"
-                },
-                30: {
-                    title: "Test Apple Sign-In",
-                    description: "Test Apple Sign-In functionality on a physical device with proper Apple ID credentials.",
-                    alt: "Apple Sign-In Test",
-                    caption: "Testing Apple Sign-In authentication"
-                },
-                31: {
-                    title: "Test Username Selection",
-                    description: "Verify that the username selection flow works correctly with availability checking.",
-                    alt: "Username Selection",
-                    caption: "Testing username selection and validation"
-                },
-                32: {
-                    title: "Test Password Reset",
-                    description: "Test the password reset functionality to ensure users can recover their accounts.",
-                    alt: "Password Reset",
-                    caption: "Testing password reset functionality"
-                },
-                33: {
-                    title: "Configure Localization",
-                    description: "Set up and test multiple language support including German and Arabic.",
-                    alt: "Localization Setup",
-                    caption: "Configuring localization for multiple languages"
-                },
-                34: {
-                    title: "Final Testing and Deployment",
-                    description: "Perform comprehensive testing on multiple devices and prepare for App Store submission.",
-                    alt: "Final Testing",
-                    caption: "Final testing and deployment preparation"
+                8: {
+                    title: "Configure Bundle Identifier",
+                    description: "Enter your app's Bundle ID exactly as it appears in your Xcode project.",
+                    instructions: [
+                        "In Xcode, select your project in the navigator",
+                        "Select your target under 'TARGETS'",
+                        "Go to the 'General' tab",
+                        "Find the 'Bundle Identifier' field",
+                        "Copy this exact Bundle ID",
+                        "Paste it into the Firebase setup form"
+                    ],
+                    copyText: "com.yourcompany.authtemplate",
+                    note: "Use a reverse domain format like com.yourcompany.yourapp",
+                    alt: "Bundle Identifier",
+                    caption: "Configuring Bundle Identifier in Firebase"
                 }
+                // Add more steps here...
             };
             
             return steps[stepNumber] || {
                 title: `Setup Step ${stepNumber}`,
                 description: "Configuration step description.",
+                instructions: ["Follow the on-screen instructions"],
                 alt: `Step ${stepNumber}`,
                 caption: `Step ${stepNumber} configuration`
             };
+        }
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback
+                event.target.style.background = '#4caf50';
+                event.target.style.color = 'white';
+                const originalText = event.target.innerHTML;
+                event.target.innerHTML = '✅ Copied!';
+                
+                setTimeout(() => {
+                    event.target.style.background = '#e3f2fd';
+                    event.target.style.color = '#1976d2';
+                    event.target.innerHTML = originalText;
+                }, 2000);
+            });
         }
 
         // Image modal functionality
@@ -1049,34 +1059,26 @@ struct AppConfig {
             modalImg.src = img.src;
             modalImg.alt = img.alt;
             
-            // Prevent body scrolling
             document.body.style.overflow = 'hidden';
         }
 
         function closeImageModal() {
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
-            
-            // Restore body scrolling
             document.body.style.overflow = 'auto';
         }
 
         // Tab functionality
         function showTab(tabName) {
-            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
             
-            // Remove active class from all tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Show selected tab content
             document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to clicked tab
             event.target.classList.add('active');
         }
 
@@ -1085,7 +1087,7 @@ struct AppConfig {
             navMenu.classList.toggle('active');
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1097,75 +1099,16 @@ struct AppConfig {
                     });
                 }
                 
-                // Close mobile nav if open
                 const navMenu = document.getElementById('nav-menu');
                 navMenu.classList.remove('active');
             });
         });
 
-        // Scroll-to-top functionality
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                if (!document.getElementById('scroll-top')) {
-                    const scrollButton = document.createElement('button');
-                    scrollButton.id = 'scroll-top';
-                    scrollButton.innerHTML = '↑';
-                    scrollButton.style.cssText = `
-                        position: fixed;
-                        bottom: 30px;
-                        right: 30px;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        background: #007AFF;
-                        color: white;
-                        border: none;
-                        font-size: 20px;
-                        cursor: pointer;
-                        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
-                        z-index: 1000;
-                        transition: all 0.3s ease;
-                    `;
-                    scrollButton.addEventListener('click', () => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    });
-                    scrollButton.addEventListener('mouseenter', () => {
-                        scrollButton.style.transform = 'scale(1.1)';
-                    });
-                    scrollButton.addEventListener('mouseleave', () => {
-                        scrollButton.style.transform = 'scale(1)';
-                    });
-                    document.body.appendChild(scrollButton);
-                }
-            } else {
-                const scrollButton = document.getElementById('scroll-top');
-                if (scrollButton) {
-                    scrollButton.remove();
-                }
-            }
-        });
-
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize lazy loading
-            lazyLoad();
+            console.log('📱 iOS Authentication Template Documentation loaded');
             
-            // Add fade-in animation to sections
-            const sections = document.querySelectorAll('.section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeIn 0.6s ease forwards';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                observer.observe(section);
-            });
-            
-            // Add copy code functionality
+            // Add copy functionality to code blocks
             document.querySelectorAll('.code-block').forEach(block => {
                 const copyButton = document.createElement('button');
                 copyButton.innerHTML = '📋 Copy';
@@ -1184,19 +1127,12 @@ struct AppConfig {
                 `;
                 
                 copyButton.addEventListener('click', () => {
-                    navigator.clipboard.writeText(block.textContent.replace('📋 Copy', '').trim());
+                    const code = block.textContent.replace('📋 Copy', '').trim();
+                    navigator.clipboard.writeText(code);
                     copyButton.innerHTML = '✅ Copied!';
                     setTimeout(() => {
                         copyButton.innerHTML = '📋 Copy';
                     }, 2000);
-                });
-                
-                copyButton.addEventListener('mouseenter', () => {
-                    copyButton.style.background = 'rgba(255, 255, 255, 0.2)';
-                });
-                
-                copyButton.addEventListener('mouseleave', () => {
-                    copyButton.style.background = 'rgba(255, 255, 255, 0.1)';
                 });
                 
                 block.appendChild(copyButton);
@@ -1208,11 +1144,6 @@ struct AppConfig {
                     closeImageModal();
                 }
             });
-            
-            // Performance monitoring
-            console.log('📱 iOS Authentication Template Documentation loaded');
-            console.log('🔧 Lazy loading initialized for images');
-            console.log('⚡ Performance optimizations active');
         });
     </script>
 </body>
