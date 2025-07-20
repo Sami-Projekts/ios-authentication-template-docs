@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -647,12 +648,6 @@
                     <h4>✅ What you'll see:</h4>
                     <p>The project will open with a complete folder structure including Views, ViewModels, Models, Services, and Utilities folders, all organized following MVVM architecture.</p>
                 </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" 
-                         alt="Xcode Project Overview"
-                         onclick="openImageModal(this)">
-                    <p>Xcode Project Overview - File structure and organization</p>
-                </div>
 
                 <!-- Step 2 -->
                 <h3>Step 2: Add Swift Package Dependencies</h3>
@@ -676,12 +671,7 @@
                         <li>Google Sign-In iOS: <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">https://github.com/google/GoogleSignIn-iOS</div></li>
                     </ul>
                 </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png" 
-                         alt="Adding Package Dependencies"
-                         onclick="openImageModal(this)">
-                    <p>Adding Package Dependencies in Xcode Project Settings</p>
-                </div>
+               
 
                 <!-- Step 3 -->
                 <h3>Step 3: Add Firebase iOS SDK</h3>
@@ -707,15 +697,15 @@
                         📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
                     </div>
                 </div>
+                
                 <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
-                         alt="Firebase SDK URL"
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png"
+                         alt="Xcode Project Overview"
                          onclick="openImageModal(this)">
-                    <p>Entering Firebase iOS SDK repository URL</p>
+                    <p>Xcode Project Overview - File structure and organization</p>
                 </div>
-
-                <!-- Continue with more steps... Let me add a few more key ones -->
-
+                
+                
                 <!-- Step 4 -->
                 <h3>Step 4: Select Firebase Products</h3>
                 <div class="step-description">
@@ -734,12 +724,16 @@
                     <h4>⚠️ Important:</h4>
                     <p>Don't add all Firebase products as they will increase your app size. Only add what you need!</p>
                 </div>
+                
                 <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
-                         alt="Firebase Products Selection"
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png"
+                         alt="Adding Package Dependencies"
                          onclick="openImageModal(this)">
-                    <p>Selecting Firebase products for authentication and data storage</p>
+                    <p>Adding Package Dependencies in Xcode Project Settings</p>
                 </div>
+
+                
+               
 
                 <!-- Step 5 -->
                 <h3>Step 5: Add Google Sign-In SDK</h3>
@@ -763,11 +757,19 @@
                     <h4>✅ Verification:</h4>
                     <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
                 </div>
+                
                 <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
-                         alt="Google Sign-In SDK"
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png"
+                         alt="Firebase SDK URL"
                          onclick="openImageModal(this)">
-                    <p>Adding Google Sign-In iOS SDK to the project</p>
+                    <p>Entering Firebase iOS SDK repository URL</p>
+                </div>
+                
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
+                         alt="Firebase Products Selection"
+                         onclick="openImageModal(this)">
+                    <p>Selecting Firebase products for authentication and data storage</p>
                 </div>
 
                 <!-- Load More Button for remaining steps -->
@@ -797,13 +799,6 @@
                 <h3>App Configuration</h3>
                 <p>Customize your app settings in <code>AppConfig.swift</code>:</p>
                 <div class="code-block">
-
-                </div>
-
-                <h3>Theme Customization</h3>
-                <p>Change colors and design in <code>AppTheme.swift</code>:</p>
-                <div class="code-block">
-
                 </div>
 
                 <div class="success">
@@ -935,14 +930,13 @@
             const steps = {
                 6: {
                     title: "Create Firebase Project",
-                    description: "Go to the Firebase Console and create a new project for your iOS app.",
+                    description: "Go to Firebase Console and create a new project for your iOS app.",
                     instructions: [
-                        "Open your web browser and go to https://console.firebase.google.com/",
+                        "Open https://console.firebase.google.com/ in your browser",
                         "Click 'Create a project' button",
                         "Enter your project name (e.g., 'MyApp Authentication')",
                         "Choose whether to enable Google Analytics (recommended)",
-                        "Accept the Firebase terms and click 'Create project'",
-                        "Wait for the project to be created (usually takes 30-60 seconds)"
+                        "Accept Firebase terms and click 'Create project'"
                     ],
                     copyText: "https://console.firebase.google.com/",
                     note: "Choose a descriptive project name as you cannot change it later.",
@@ -953,30 +947,27 @@
                     title: "Add iOS App to Firebase",
                     description: "Register your iOS app with Firebase to establish the connection.",
                     instructions: [
-                        "In your new Firebase project, click 'Add app'",
-                        "Select the iOS platform (Apple logo)",
-                        "Enter your iOS Bundle ID exactly as it appears in Xcode",
-                        "Add an app nickname (optional, for your reference)",
+                        "In your Firebase project, click the iOS icon to add iOS app",
+                        "Enter your Bundle ID exactly as shown in Xcode",
+                        "Add an app nickname (optional)",
                         "Leave App Store ID empty for now",
-                        "Click 'Register app' to continue"
+                        "Click 'Register app'"
                     ],
-                    note: "The Bundle ID must match exactly between Xcode and Firebase, or authentication will fail.",
+                    note: "Bundle ID must match exactly between Xcode and Firebase.",
                     alt: "Add iOS App",
                     caption: "Adding iOS app to Firebase project"
                 },
                 8: {
                     title: "Configure Bundle Identifier",
-                    description: "Enter your app's Bundle ID exactly as it appears in your Xcode project.",
+                    description: "Enter your app's Bundle ID exactly as it appears in Xcode.",
                     instructions: [
-                        "In Xcode, select your project in the navigator",
-                        "Select your target under 'TARGETS'",
-                        "Go to the 'General' tab",
-                        "Find the 'Bundle Identifier' field",
-                        "Copy this exact Bundle ID",
-                        "Paste it into the Firebase setup form"
+                        "Copy your Bundle ID from Xcode (General → Identity → Bundle Identifier)",
+                        "Paste it into the Firebase registration form",
+                        "Use reverse domain format like com.yourcompany.yourapp",
+                        "Double-check spelling - it must be exact",
+                        "Click 'Register app' to continue"
                     ],
                     copyText: "com.yourcompany.authtemplate",
-                    note: "Use a reverse domain format like com.yourcompany.yourapp",
                     alt: "Bundle Identifier",
                     caption: "Configuring Bundle Identifier in Firebase"
                 },
@@ -984,39 +975,39 @@
                     title: "Download GoogleService-Info.plist",
                     description: "Download the Firebase configuration file that connects your app to Firebase.",
                     instructions: [
-                        "Click the 'Download GoogleService-Info.plist' button in Firebase Console",
+                        "Click 'Download GoogleService-Info.plist' button",
                         "Save the file to your Downloads folder",
-                        "This file contains your Firebase project configuration and API keys",
-                        "Keep this file secure - never share it publicly",
-                        "Click 'Next' in Firebase Console to continue setup"
+                        "This file contains your Firebase project configuration",
+                        "Keep this file secure - it contains API keys",
+                        "Click 'Next' to continue"
                     ],
-                    note: "Never commit this file to public repositories as it contains sensitive API keys.",
+                    note: "Never commit this file to public repositories as it contains sensitive data.",
                     alt: "Download GoogleService-Info.plist",
                     caption: "Downloading Firebase configuration file"
                 },
                 10: {
                     title: "Add Configuration File to Xcode",
-                    description: "Add the GoogleService-Info.plist file to your Xcode project root.",
+                    description: "Add the GoogleService-Info.plist file to your Xcode project.",
                     instructions: [
                         "Drag GoogleService-Info.plist from Downloads into Xcode project navigator",
-                        "Drop it at the root level of your project (same level as App.swift)",
-                        "Make sure 'Add to target' checkbox is checked",
-                        "Verify the file appears in your project navigator with proper target membership",
+                        "Make sure 'Add to target' is checked for your app target",
+                        "Place it in the root of your project (same level as App.swift)",
+                        "Verify the file appears in your project navigator",
                         "In Firebase Console, click 'Next' to continue"
                     ],
-                    note: "The plist file must be added to your app target, not just the project folder.",
+                    note: "The plist file must be added to your app target, not just the project.",
                     alt: "Add plist to Xcode",
                     caption: "Adding GoogleService-Info.plist to Xcode project"
                 },
                 11: {
                     title: "Enable Authentication in Firebase",
-                    description: "Activate Firebase Authentication for your project.",
+                    description: "Enable Firebase Authentication for your project.",
                     instructions: [
-                        "In Firebase Console sidebar, click 'Authentication'",
-                        "Click 'Get started' button to initialize Authentication",
-                        "You'll see the Authentication dashboard with user management tools",
-                        "Navigate to the 'Sign-in method' tab at the top",
-                        "This is where you'll configure different authentication providers"
+                        "In Firebase Console, click 'Authentication' in left sidebar",
+                        "Click 'Get started' button",
+                        "You'll see the Authentication dashboard",
+                        "Navigate to 'Sign-in method' tab",
+                        "This is where you'll configure authentication providers"
                     ],
                     alt: "Enable Authentication",
                     caption: "Enabling Authentication in Firebase Console"
@@ -1025,33 +1016,33 @@
                     title: "Configure Email/Password Authentication",
                     description: "Enable email and password sign-in for your users.",
                     instructions: [
-                        "In the Sign-in method tab, find 'Email/Password' in the providers list",
-                        "Click on 'Email/Password' to open configuration",
-                        "Toggle the 'Enable' switch to activate email authentication",
-                        "Optionally enable 'Email link (passwordless sign-in)' for easier login",
-                        "Click 'Save' to apply the email authentication settings"
+                        "In Sign-in method tab, find 'Email/Password' provider",
+                        "Click on 'Email/Password' to configure it",
+                        "Toggle 'Enable' switch to turn it on",
+                        "Optionally enable 'Email link' for passwordless sign-in",
+                        "Click 'Save' to apply changes"
                     ],
-                    note: "Email/Password is the most reliable authentication method across all platforms.",
+                    note: "Email/Password is the most basic authentication method and works on all platforms.",
                     alt: "Email Password Setup",
                     caption: "Configuring Email/Password authentication method"
                 },
                 13: {
                     title: "Enable Google Sign-In",
-                    description: "Configure Google Sign-In provider for seamless user authentication.",
+                    description: "Configure Google Sign-In provider for easy user authentication.",
                     instructions: [
                         "Find 'Google' in the Sign-in providers list",
-                        "Click on 'Google' to open its configuration",
-                        "Toggle the 'Enable' switch to activate Google Sign-In",
-                        "Enter your project support email address (required)",
-                        "Click 'Save' to enable Google Sign-In authentication"
+                        "Click on 'Google' to configure it",
+                        "Toggle 'Enable' switch",
+                        "Set your project support email address",
+                        "Click 'Save' to enable Google Sign-In"
                     ],
-                    note: "Google Sign-In requires additional URL scheme configuration in Xcode (covered in later steps).",
+                    note: "Google Sign-In requires additional setup in Xcode with URL schemes.",
                     alt: "Google Sign-In Config",
                     caption: "Enabling and configuring Google Sign-In provider"
                 },
                 14: {
                     title: "Set Support Email for Authentication",
-                    description: "Configure your support email address for authentication flows and user communications.",
+                    description: "Configure your support email address for authentication flows.",
                     instructions: [
                         "In the Google Sign-In configuration, locate 'Support email' field",
                         "Enter a valid email address that users can contact for support",
