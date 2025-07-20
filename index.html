@@ -269,19 +269,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            border-radius: 0;
-            padding: 15px 20px;
-            margin-bottom: 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
         .nav ul {
             list-style: none;
             display: flex;
@@ -306,6 +293,26 @@
         .nav a:hover {
             background: #007AFF;
             color: white;
+        }
+
+        .step-visual {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .step-visual img {
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-visual p {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
         }
 
         /* Mobile Navigation */
@@ -400,7 +407,7 @@
             <h1>🚀 iOS Authentication Template</h1>
             <p>Professional SwiftUI authentication system with Firebase integration</p>
             <div class="cta-buttons">
-                <a href="#quick-start" class="btn btn-primary">Quick Start Guide</a>
+                <a href="#setup" class="btn btn-primary">Quick Setup Guide</a>
                 <a href="#features" class="btn btn-secondary">View Features</a>
             </div>
         </div>
@@ -511,30 +518,6 @@
                         <h4>Security Features</h4>
                         <p>Input validation, temporary email blocking, secure error handling, and Firebase security rules</p>
                     </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h4>Main App Interface</h4>
-                        <p>Complete TabView with Home, Shop, Challenges, Profile, and Settings screens</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">♿</div>
-                        <h4>Accessibility Ready</h4>
-                        <p>VoiceOver support, proper contrast ratios, and accessibility labels throughout</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">🔧</div>
-                        <h4>Developer Friendly</h4>
-                        <p>Clean MVVM architecture, comprehensive documentation, and type-safe localization</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h4>Production Ready</h4>
-                        <p>Error handling, loading states, offline support, and App Store submission ready</p>
-                    </div>
                 </div>
             </section>
 
@@ -551,462 +534,252 @@
                     <li>Google Developer Account (for Google Sign-In)</li>
                 </ul>
 
-                <h3>Step 1: Add Package Dependencies</h3>
-                <p>First, you need to add the required Swift Package Manager dependencies to your project.</p>
-                
+                <!-- Step-by-step guide with images -->
+                <h3>Step 1: Download and Open Project</h3>
+                <p>Download the iOS Authentication Template and open it in Xcode. You'll see the complete project structure with all necessary files organized.</p>
                 <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/1.png?raw=true" alt="Add Package Dependencies in Xcode" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: Adding Package Dependencies in Xcode Project Settings</p>
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/1.png?raw=true" alt="Xcode Project Overview" onerror="this.style.display='none'">
+                    <p>Xcode Project Overview - File structure and organization</p>
+                </div>
+
+                <h3>Step 2: Add Swift Package Dependencies</h3>
+                <p>First, we need to add the Firebase iOS SDK and Google Sign-In packages to your project.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/2.png?raw=true" alt="Adding Package Dependencies" onerror="this.style.display='none'">
+                    <p>Adding Package Dependencies in Xcode Project Settings</p>
+                </div>
+
+                <h3>Step 3: Configure Firebase URL</h3>
+                <p>Add the Firebase iOS SDK URL: <code>https://github.com/firebase/firebase-ios-sdk</code></p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/3.png?raw=true" alt="Firebase SDK URL" onerror="this.style.display='none'">
+                    <p>Entering Firebase iOS SDK repository URL</p>
+                </div>
+
+                <h3>Step 4: Select Firebase Products</h3>
+                <p>Choose the required Firebase products: FirebaseAuth, FirebaseFirestore, and FirebaseStorage.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/4.png?raw=true" alt="Firebase Products Selection" onerror="this.style.display='none'">
+                    <p>Selecting Firebase products for authentication and data storage</p>
+                </div>
+
+                <h3>Step 5: Add Google Sign-In SDK</h3>
+                <p>Add the Google Sign-In iOS SDK: <code>https://github.com/google/GoogleSignIn-iOS</code></p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/5.png?raw=true" alt="Google Sign-In SDK" onerror="this.style.display='none'">
+                    <p>Adding Google Sign-In iOS SDK to the project</p>
+                </div>
+
+                <h3>Step 6: Create Firebase Project</h3>
+                <p>Go to the Firebase Console and create a new project for your iOS app.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/6.png?raw=true" alt="Firebase Console" onerror="this.style.display='none'">
+                    <p>Firebase Console - Creating a new project</p>
+                </div>
+
+                <h3>Step 7: Add iOS App to Firebase</h3>
+                <p>Click "Add app" and select iOS. Enter your Bundle Identifier from Xcode.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/7.png?raw=true" alt="Add iOS App" onerror="this.style.display='none'">
+                    <p>Adding iOS app to Firebase project</p>
+                </div>
+
+                <h3>Step 8: Configure Bundle Identifier</h3>
+                <p>Enter your app's Bundle ID (e.g., com.yourcompany.authtemplate) exactly as it appears in Xcode.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/8.png?raw=true" alt="Bundle Identifier" onerror="this.style.display='none'">
+                    <p>Configuring Bundle Identifier in Firebase</p>
+                </div>
+
+                <h3>Step 9: Download GoogleService-Info.plist</h3>
+                <p>Download the GoogleService-Info.plist file from Firebase. This contains your app's configuration.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/9.png?raw=true" alt="Download plist" onerror="this.style.display='none'">
+                    <p>Downloading GoogleService-Info.plist configuration file</p>
+                </div>
+
+                <h3>Step 10: Add plist to Xcode Project</h3>
+                <p>Drag the GoogleService-Info.plist file into your Xcode project root, ensuring "Add to target" is checked.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/10.png?raw=true" alt="Add plist to Xcode" onerror="this.style.display='none'">
+                    <p>Adding GoogleService-Info.plist to Xcode project</p>
+                </div>
+
+                <h3>Step 11: Enable Authentication in Firebase</h3>
+                <p>In Firebase Console, go to Authentication and click "Get started".</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/11.png?raw=true" alt="Enable Authentication" onerror="this.style.display='none'">
+                    <p>Enabling Authentication in Firebase Console</p>
+                </div>
+
+                <h3>Step 12: Configure Sign-in Methods</h3>
+                <p>Go to "Sign-in method" tab and enable Email/Password authentication.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/12.png?raw=true" alt="Sign-in Methods" onerror="this.style.display='none'">
+                    <p>Configuring Email/Password sign-in method</p>
+                </div>
+
+                <h3>Step 13: Enable Google Sign-In</h3>
+                <p>Enable Google sign-in provider and configure the OAuth settings.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/13.png?raw=true" alt="Google Sign-In Config" onerror="this.style.display='none'">
+                    <p>Enabling and configuring Google Sign-In provider</p>
+                </div>
+
+                <h3>Step 14: Set Support Email</h3>
+                <p>Configure your support email address for authentication flows.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/14.png?raw=true" alt="Support Email" onerror="this.style.display='none'">
+                    <p>Setting up support email for authentication</p>
+                </div>
+
+                <h3>Step 15: Configure Firestore Database</h3>
+                <p>Go to Firestore Database and create a new database in production mode.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/15.png?raw=true" alt="Firestore Setup" onerror="this.style.display='none'">
+                    <p>Creating Firestore Database for user data storage</p>
+                </div>
+
+                <h3>Step 16: Set Database Location</h3>
+                <p>Choose a database location close to your users for better performance.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/16.png?raw=true" alt="Database Location" onerror="this.style.display='none'">
+                    <p>Selecting Firestore database location</p>
+                </div>
+
+                <h3>Step 17: Configure Security Rules</h3>
+                <p>Set up Firestore security rules to protect user data and ensure proper access control.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/17.png?raw=true" alt="Security Rules" onerror="this.style.display='none'">
+                    <p>Configuring Firestore security rules</p>
+                </div>
+
+                <h3>Step 18: Add URL Scheme for Google Sign-In</h3>
+                <p>In Xcode, go to your target's Info tab and add URL Types for Google Sign-In.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/18.png?raw=true" alt="URL Scheme" onerror="this.style.display='none'">
+                    <p>Adding URL scheme for Google Sign-In integration</p>
+                </div>
+
+                <h3>Step 19: Configure REVERSED_CLIENT_ID</h3>
+                <p>Add the REVERSED_CLIENT_ID from GoogleService-Info.plist as a URL scheme.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/19.png?raw=true" alt="Client ID Config" onerror="this.style.display='none'">
+                    <p>Configuring REVERSED_CLIENT_ID for Google authentication</p>
+                </div>
+
+                <h3>Step 20: Enable Sign in with Apple Capability</h3>
+                <p>In Signing & Capabilities, add "Sign in with Apple" capability.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/20.png?raw=true" alt="Apple Sign-In Capability" onerror="this.style.display='none'">
+                    <p>Adding Sign in with Apple capability to the project</p>
+                </div>
+
+                <h3>Step 21: Configure App ID in Developer Portal</h3>
+                <p>Go to Apple Developer Portal and enable Sign in with Apple for your App ID.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/21.png?raw=true" alt="Developer Portal App ID" onerror="this.style.display='none'">
+                    <p>Configuring App ID in Apple Developer Portal</p>
+                </div>
+
+                <h3>Step 22: Enable Apple Sign-In in Firebase</h3>
+                <p>Back in Firebase Console, enable Apple as a sign-in provider in Authentication settings.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/22.png?raw=true" alt="Apple Sign-In Firebase" onerror="this.style.display='none'">
+                    <p>Enabling Apple Sign-In provider in Firebase</p>
+                </div>
+
+                <h3>Step 23: Configure Apple Service ID</h3>
+                <p>Set up Apple Service ID and configure the domain and return URLs for web authentication.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/23.png?raw=true" alt="Apple Service ID" onerror="this.style.display='none'">
+                    <p>Configuring Apple Service ID for authentication</p>
+                </div>
+
+                <h3>Step 24: Test Firebase Connection</h3>
+                <p>Build and run your project to test the Firebase connection and verify all configurations.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/24.png?raw=true" alt="Test Firebase" onerror="this.style.display='none'">
+                    <p>Testing Firebase connection in Xcode console</p>
+                </div>
+
+                <h3>Step 25: Configure App Theme</h3>
+                <p>Customize your app's theme by modifying colors and styles in AppTheme.swift.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/25.png?raw=true" alt="App Theme Config" onerror="this.style.display='none'">
+                    <p>Customizing app theme and color scheme</p>
+                </div>
+
+                <h3>Step 26: Update App Configuration</h3>
+                <p>Modify AppConfig.swift to set your app name, version, and feature toggles.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/26.png?raw=true" alt="App Config" onerror="this.style.display='none'">
+                    <p>Updating app configuration settings</p>
+                </div>
+
+                <h3>Step 27: Test Email Authentication</h3>
+                <p>Test the email registration and login functionality with different email addresses.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/27.png?raw=true" alt="Email Auth Test" onerror="this.style.display='none'">
+                    <p>Testing email authentication flow</p>
+                </div>
+
+                <h3>Step 28: Test Email Verification</h3>
+                <p>Verify that email verification emails are sent and the verification process works correctly.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/28.png?raw=true" alt="Email Verification" onerror="this.style.display='none'">
+                    <p>Testing email verification functionality</p>
+                </div>
+
+                <h3>Step 29: Test Google Sign-In</h3>
+                <p>Test Google Sign-In on a physical device (not simulator) to ensure proper integration.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/29.png?raw=true" alt="Google Sign-In Test" onerror="this.style.display='none'">
+                    <p>Testing Google Sign-In authentication</p>
+                </div>
+
+                <h3>Step 30: Test Apple Sign-In</h3>
+                <p>Test Apple Sign-In functionality on a physical device with proper Apple ID credentials.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/30.png?raw=true" alt="Apple Sign-In Test" onerror="this.style.display='none'">
+                    <p>Testing Apple Sign-In authentication</p>
+                </div>
+
+                <h3>Step 31: Test Username Selection</h3>
+                <p>Verify that the username selection flow works correctly with availability checking.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/31.png?raw=true" alt="Username Selection" onerror="this.style.display='none'">
+                    <p>Testing username selection and validation</p>
+                </div>
+
+                <h3>Step 32: Test Password Reset</h3>
+                <p>Test the password reset functionality to ensure users can recover their accounts.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/32.png?raw=true" alt="Password Reset" onerror="this.style.display='none'">
+                    <p>Testing password reset functionality</p>
+                </div>
+
+                <h3>Step 33: Configure Localization</h3>
+                <p>Set up and test multiple language support including German and Arabic.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/33.png?raw=true" alt="Localization Setup" onerror="this.style.display='none'">
+                    <p>Configuring localization for multiple languages</p>
+                </div>
+
+                <h3>Step 34: Final Testing and Deployment</h3>
+                <p>Perform comprehensive testing on multiple devices and prepare for App Store submission.</p>
+                <div class="step-visual">
+                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/34.png?raw=true" alt="Final Testing" onerror="this.style.display='none'">
+                    <p>Final testing and deployment preparation</p>
+                </div>
+
+                <div class="success">
+                    <h4>🎉 Setup Complete!</h4>
+                    <p>Congratulations! You have successfully configured your iOS Authentication Template. Your app now has professional authentication with Firebase, Google Sign-In, and Apple Sign-In integration.</p>
                 </div>
 
                 <div class="code-block">
-Required Dependencies:
-• Firebase iOS SDK
-• Google Sign-In iOS SDK
-                </div>
-
-                <h4>How to add packages:</h4>
-                <ol class="step-list">
-                    <li>Click the <strong>"+" button</strong> in Package Dependencies section</li>
-                    <li>Add Firebase iOS SDK: <code>https://github.com/firebase/firebase-ios-sdk</code></li>
-                    <li>Add Google Sign-In: <code>https://github.com/google/GoogleSignIn-iOS</code></li>
-                    <li>Select required Firebase products (Auth, Firestore, Storage)</li>
-                </ol>
-
-                <!-- Steps 2-34 - Image Placeholders -->
-                
-                <h3>Step 2: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/2.png?raw=true" alt="Step 2" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 3: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/3.png?raw=true" alt="Step 3" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 4: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/4.png?raw=true" alt="Step 4" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 5: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/5.png?raw=true" alt="Step 5" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 6: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/6.png?raw=true" alt="Step 6" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 7: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/7.png?raw=true" alt="Step 7" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 8: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/8.png?raw=true" alt="Step 8" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 9: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/9.png?raw=true" alt="Step 9" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 10: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/10.png?raw=true" alt="Step 10" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 11: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/11.png?raw=true" alt="Step 11" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 12: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/12.png?raw=true" alt="Step 12" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 13: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/13.png?raw=true" alt="Step 13" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 14: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/14.png?raw=true" alt="Step 14" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 15: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/15.png?raw=true" alt="Step 15" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 16: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/16.png?raw=true" alt="Step 16" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 17: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/17.png?raw=true" alt="Step 17" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 18: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/18.png?raw=true" alt="Step 18" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 19: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/19.png?raw=true" alt="Step 19" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 20: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/20.png?raw=true" alt="Step 20" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 21: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/21.png?raw=true" alt="Step 21" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 22: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/22.png?raw=true" alt="Step 22" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 23: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/23.png?raw=true" alt="Step 23" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 24: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/24.png?raw=true" alt="Step 24" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 25: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/25.png?raw=true" alt="Step 25" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 26: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/26.png?raw=true" alt="Step 26" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 27: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/27.png?raw=true" alt="Step 27" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 28: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/28.png?raw=true" alt="Step 28" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 29: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/29.png?raw=true" alt="Step 29" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 30: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/30.png?raw=true" alt="Step 30" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 31: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/31.png?raw=true" alt="Step 31" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 32: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/32.png?raw=true" alt="Step 32" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 33: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/33.png?raw=true" alt="Step 33" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 34: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/34.png?raw=true" alt="Step 34" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>                <h3>Step 12: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/12.png?raw=true" alt="Step 12" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 13: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/13.png?raw=true" alt="Step 13" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 14: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/14.png?raw=true" alt="Step 14" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 15: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/15.png?raw=true" alt="Step 15" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 16: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/16.png?raw=true" alt="Step 16" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 17: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/17.png?raw=true" alt="Step 17" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 18: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/18.png?raw=true" alt="Step 18" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 19: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/19.png?raw=true" alt="Step 19" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 20: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/20.png?raw=true" alt="Step 20" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 21: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/21.png?raw=true" alt="Step 21" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 22: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/22.png?raw=true" alt="Step 22" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 23: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/23.png?raw=true" alt="Step 23" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 24: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/24.png?raw=true" alt="Step 24" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 25: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/25.png?raw=true" alt="Step 25" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 26: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/26.png?raw=true" alt="Step 26" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 27: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/27.png?raw=true" alt="Step 27" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 28: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/28.png?raw=true" alt="Step 28" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 29: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/29.png?raw=true" alt="Step 29" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 30: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/30.png?raw=true" alt="Step 30" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 31: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/31.png?raw=true" alt="Step 31" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 32: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/32.png?raw=true" alt="Step 32" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 33: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/33.png?raw=true" alt="Step 33" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>Step 34: [Step Title]</h3>
-                <p>[Step Description]</p>
-                <div class="step-visual">
-                    <img src="https://github.com/Sami-Projekts/ios-authentication-template-docs/blob/main/34.png?raw=true" alt="Step 34" style="width: 100%; max-width: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-                    <p style="font-style: italic; color: #666; text-align: center; margin-top: 10px;">Screenshot: [Description]</p>
-                </div>
-
-                <h3>1. Firebase Setup</h3>
-                <ol class="step-list">
-                    <li>
-                        <strong>Create Firebase Project</strong>
-                        <div class="code-block">
-1. Go to https://console.firebase.google.com/
-2. Click "Create a project"
-3. Follow the setup wizard
-4. Enable Google Analytics (optional)
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <strong>Add iOS App to Firebase</strong>
-                        <div class="code-block">
-1. Click "Add app" → iOS
-2. Enter your Bundle ID (e.g., com.yourcompany.authtemplate)
-3. Download GoogleService-Info.plist
-4. Drag the file into your Xcode project root
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <strong>Enable Authentication Methods</strong>
-                        <div class="code-block">
-1. Go to Authentication → Sign-in method
-2. Enable Email/Password
-3. Enable Google (if using Google Sign-In)
-4. Configure authorized domains
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <strong>Configure Firestore Database</strong>
-                        <div class="code-block">
-1. Go to Firestore Database
-2. Create database in production mode
-3. Set up security rules (see below)
-                        </div>
-                        
-                        <h4>Firestore Security Rules:</h4>
-                        <div class="code-block">
+// Firestore Security Rules (copy and paste these into your Firebase Console)
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -1015,76 +788,18 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
     
-    // Prevent unauthorized access
+    // Usernames collection for availability checking
+    match /usernames/{username} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == resource.data.uid;
+    }
+    
+    // Prevent unauthorized access to other collections
     match /{document=**} {
       allow read, write: if false;
     }
   }
 }
-                        </div>
-                    </li>
-                </ol>
-
-                <h3>2. Google Sign-In Setup</h3>
-                <ol class="step-list">
-                    <li>
-                        <strong>Configure URL Scheme</strong>
-                        <div class="code-block">
-1. Open your project in Xcode
-2. Select your target → Info → URL Types
-3. Add URL Scheme from GoogleService-Info.plist
-4. The scheme is the REVERSED_CLIENT_ID value
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <strong>Initialize in App</strong>
-                        <div class="code-block">
-// In your AuthenticationTemplateApp.swift
-import GoogleSignIn
-
-init() {
-    FirebaseApp.configure()
-    
-    guard let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
-          let plist = NSDictionary(contentsOfFile: path),
-          let clientId = plist["CLIENT_ID"] as? String else {
-        fatalError("GoogleService-Info.plist not found")
-    }
-    
-    GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientId)
-}
-                        </div>
-                    </li>
-                </ol>
-
-                <h3>3. Apple Sign-In Setup</h3>
-                <ol class="step-list">
-                    <li>
-                        <strong>Enable Apple Sign-In Capability</strong>
-                        <div class="code-block">
-1. Select your target in Xcode
-2. Go to Signing & Capabilities
-3. Click "+ Capability"
-4. Add "Sign in with Apple"
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <strong>Configure in Developer Portal</strong>
-                        <div class="code-block">
-1. Go to Apple Developer Portal
-2. Certificates, Identifiers & Profiles
-3. Select your App ID
-4. Enable "Sign in with Apple"
-5. Configure domain and email settings
-                        </div>
-                    </li>
-                </ol>
-
-                <div class="warning">
-                    <h4>⚠️ Important: Firebase Dynamic Links Notice</h4>
-                    <p>Firebase Dynamic Links will be discontinued on August 25, 2025. However, <strong>this template is NOT affected</strong> because we use standard email/password authentication with email verification, not email-link authentication. All features will continue to work normally.</p>
                 </div>
             </section>
 
@@ -1099,15 +814,23 @@ struct AppConfig {
     // App Information
     static let appName = "Your App Name"
     static let appVersion = "1.0.0"
+    static let bundleId = "com.yourcompany.yourapp"
     
     // Authentication Settings
     static let enableGoogleSignIn = true
     static let enableAppleSignIn = true
     static let enableEmailSignIn = true
+    static let requireEmailVerification = true
     
     // UI Settings
     static let cornerRadius: CGFloat = 16
     static let animationDuration: Double = 0.8
+    static let defaultAnimationSpeed: Double = 0.6
+    
+    // Feature Toggles
+    static let enableUsernameSelection = true
+    static let enableProfilePictures = false
+    static let enableBiometricAuth = false
 }
                 </div>
 
@@ -1115,196 +838,373 @@ struct AppConfig {
                 <p>Change colors and design in <code>AppTheme.swift</code>:</p>
                 <div class="code-block">
 struct AppTheme {
-    // Brand Colors
-    static let primaryColor: Color = .blue      // Your brand color
-    static let secondaryColor: Color = .green   // Secondary color
-    static let accentColor: Color = .purple     // Accent color
+    // Brand Colors - Customize these to match your brand
+    static let primaryColor: Color = Color(red: 0.0, green: 0.48, blue: 1.0)     // iOS Blue
+    static let secondaryColor: Color = Color(red: 0.35, green: 0.34, blue: 0.84)  // Purple
+    static let accentColor: Color = Color(red: 1.0, green: 0.58, blue: 0.0)      // Orange
+    
+    // Background Colors
+    static let backgroundColor: Color = .black
+    static let cardBackground: Color = Color(.systemGray6)
+    static let textFieldBackground: Color = Color(.systemGray5)
+    
+    // Text Colors
+    static let primaryText: Color = .white
+    static let secondaryText: Color = .gray
+    static let placeholderText: Color = Color(.systemGray3)
     
     // Fonts
-    static let titleFont: Font = .system(size: 28, weight: .bold)
+    static let titleFont: Font = .system(size: 28, weight: .bold, design: .rounded)
     static let bodyFont: Font = .system(size: 16, weight: .medium)
+    static let buttonFont: Font = .system(size: 17, weight: .semibold)
+    static let captionFont: Font = .system(size: 13, weight: .regular)
 }
                 </div>
 
+                <h3>Adding Custom Colors</h3>
+                <p>You can easily add your brand colors:</p>
+                <div class="code-block">
+// Example: Adding your brand colors
+extension Color {
+    static let brandPrimary = Color(hex: "#007AFF")
+    static let brandSecondary = Color(hex: "#5856D6")
+    static let brandAccent = Color(hex: "#FF9500")
+    
+    // Custom color initializer from hex
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
+        }
+        
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue: Double(b) / 255,
+            opacity: Double(a) / 255
+        )
+    }
+}
+                </div>
+
+                <h3>Customizing Authentication Flow</h3>
+                <p>Enable or disable authentication methods:</p>
+                <div class="code-block">
+// In AuthenticationView.swift
+struct AuthenticationOptions {
+    let showGoogleSignIn: Bool = AppConfig.enableGoogleSignIn
+    let showAppleSignIn: Bool = AppConfig.enableAppleSignIn
+    let showEmailSignIn: Bool = AppConfig.enableEmailSignIn
+    let requireEmailVerification: Bool = AppConfig.requireEmailVerification
+}
+
+// Hide authentication methods by setting to false in AppConfig
+static let enableGoogleSignIn = false  // Hides Google Sign-In button
+static let enableAppleSignIn = false   // Hides Apple Sign-In button
+                </div>
+
                 <h3>Adding New Languages</h3>
+                <p>The template supports easy localization expansion:</p>
                 <ol class="step-list">
-                    <li>Create new Localizable.strings file for your language</li>
-                    <li>In Xcode: File → New → File → Strings File</li>
-                    <li>Name it "Localizable.strings"</li>
-                    <li>File Inspector → Localize → Add your language</li>
-                    <li>Translate all strings from the English version</li>
+                    <li><strong>Create new Localizable.strings file</strong> for your target language</li>
+                    <li><strong>In Xcode:</strong> File → New → File → Strings File</li>
+                    <li><strong>Name it:</strong> "Localizable.strings"</li>
+                    <li><strong>Localize:</strong> File Inspector → Localize → Add your language</li>
+                    <li><strong>Translate:</strong> Copy strings from English version and translate</li>
                 </ol>
+
+                <div class="code-block">
+// Example Localizable.strings (French)
+"welcome_title" = "Bienvenue";
+"email_placeholder" = "Adresse e-mail";
+"password_placeholder" = "Mot de passe";
+"sign_in_button" = "Se connecter";
+"sign_up_button" = "S'inscrire";
+"forgot_password_button" = "Mot de passe oublié?";
+                </div>
 
                 <div class="success">
                     <h4>✅ Pre-included Languages</h4>
                     <p>The template includes complete translations for:</p>
                     <ul>
                         <li><strong>English</strong> - Primary language</li>
-                        <li><strong>German</strong> - Deutsch</li>
-                        <li><strong>Arabic</strong> - العربية (with RTL support)</li>
+                        <li><strong>German (Deutsch)</strong> - Complete translation</li>
+                        <li><strong>Arabic (العربية)</strong> - Complete translation with RTL support</li>
                     </ul>
+                </div>
+
+                <h3>Customizing UI Components</h3>
+                <p>Modify button styles, text fields, and other UI elements:</p>
+                <div class="code-block">
+// Custom button style example
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(AppTheme.buttonFont)
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 56)
+            .background(
+                LinearGradient(
+                    colors: [AppTheme.primaryColor, AppTheme.secondaryColor],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .cornerRadius(AppConfig.cornerRadius)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
                 </div>
             </section>
 
             <!-- Troubleshooting -->
             <section id="troubleshooting" class="section">
-                <h2>🔧 Troubleshooting</h2>
+                <h2>🔧 Troubleshooting Guide</h2>
                 
                 <h3>Common Issues & Solutions</h3>
                 
-                <h4>Google Sign-In Not Working</h4>
-                <ul>
-                    <li>Check REVERSED_CLIENT_ID in URL schemes</li>
-                    <li>Verify GoogleService-Info.plist is added to project</li>
-                    <li>Ensure Google Sign-In is enabled in Firebase Console</li>
-                    <li>Test on physical device (not simulator)</li>
-                </ul>
+                <h4>🚫 Google Sign-In Not Working</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Google Sign-In button doesn't respond or shows error</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Verify REVERSED_CLIENT_ID in URL schemes matches GoogleService-Info.plist</li>
+                        <li>✅ Ensure GoogleService-Info.plist is added to project target</li>
+                        <li>✅ Check Google Sign-In is enabled in Firebase Console</li>
+                        <li>✅ Test on physical device (not simulator)</li>
+                        <li>✅ Verify Bundle ID matches exactly between Xcode and Firebase</li>
+                    </ul>
+                </div>
 
-                <h4>Apple Sign-In Failing</h4>
-                <ul>
-                    <li>Check Apple Sign-In capability is added</li>
-                    <li>Verify App ID is configured in Developer Portal</li>
-                    <li>Test on physical device (not simulator)</li>
-                    <li>Ensure proper provisioning profile</li>
-                </ul>
+                <h4>🍎 Apple Sign-In Failing</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Apple Sign-In shows error or doesn't appear</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Check "Sign in with Apple" capability is added in Xcode</li>
+                        <li>✅ Verify App ID is configured in Apple Developer Portal</li>
+                        <li>✅ Test on physical device with valid Apple ID</li>
+                        <li>✅ Ensure proper provisioning profile is selected</li>
+                        <li>✅ Check Apple Sign-In is enabled in Firebase Console</li>
+                    </ul>
+                </div>
 
-                <h4>Email Verification Not Working</h4>
-                <ul>
-                    <li>Check spam/junk folder</li>
-                    <li>Verify Firebase email templates are configured</li>
-                    <li>Check authorized domains in Firebase Console</li>
-                    <li>Ensure proper Firebase project setup</li>
-                </ul>
+                <h4>📧 Email Verification Issues</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Verification emails not received or links don't work</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Check spam/junk folder in email client</li>
+                        <li>✅ Verify Firebase email templates are properly configured</li>
+                        <li>✅ Check authorized domains in Firebase Console</li>
+                        <li>✅ Ensure Firebase project is properly set up</li>
+                        <li>✅ Test with different email providers (Gmail, iCloud, etc.)</li>
+                    </ul>
+                </div>
 
-                <h4>Build Errors</h4>
-                <ul>
-                    <li>Clean build folder (Product → Clean Build Folder)</li>
-                    <li>Check Swift Package Manager dependencies</li>
-                    <li>Verify minimum deployment target (iOS 15.0+)</li>
-                    <li>Update to latest Xcode version</li>
-                </ul>
+                <h4>🔥 Firebase Connection Issues</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> App crashes on launch or authentication fails</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Verify GoogleService-Info.plist is correctly added</li>
+                        <li>✅ Check Firebase.configure() is called in App.swift</li>
+                        <li>✅ Ensure Bundle ID matches between Xcode and Firebase</li>
+                        <li>✅ Verify Firebase SDK is properly installed via SPM</li>
+                        <li>✅ Check internet connection and Firebase project status</li>
+                    </ul>
+                </div>
 
+                <h4>🛠️ Build Errors</h4>
+                <div class="warning">
+                    <p><strong>Symptoms:</strong> Project won't build or compile errors</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Clean build folder: Product → Clean Build Folder</li>
+                        <li>✅ Delete derived data: ~/Library/Developer/Xcode/DerivedData</li>
+                        <li>✅ Check Swift Package Manager dependencies</li>
+                        <li>✅ Verify minimum deployment target (iOS 15.0+)</li>
+                        <li>✅ Update to latest Xcode version (15.0+)</li>
+                        <li>✅ Restart Xcode and rebuild</li>
+                    </ul>
+                </div>
+
+                <h3>Debug Mode Setup</h3>
                 <div class="info">
-                    <h4>💡 Debug Tips</h4>
-                    <p>Enable debug logging for better troubleshooting:</p>
+                    <h4>💡 Enable Debug Logging</h4>
+                    <p>Add this code to your App.swift for better troubleshooting:</p>
                     <div class="code-block">
 #if DEBUG
+import Firebase
+import os.log
+
 // Add to your App.swift init()
-print("🔥 Firebase configured in DEBUG mode")
-Auth.auth().addStateDidChangeListener { auth, user in
-    print("Auth state changed: \(user?.uid ?? "nil")")
+init() {
+    FirebaseApp.configure()
+    
+    // Enable debug logging
+    let logger = Logger(subsystem: "com.yourapp.auth", category: "authentication")
+    logger.info("🔥 Firebase configured in DEBUG mode")
+    
+    // Monitor auth state changes
+    Auth.auth().addStateDidChangeListener { auth, user in
+        if let user = user {
+            logger.info("✅ User signed in: \(user.uid)")
+            logger.info("📧 Email: \(user.email ?? "No email")")
+            logger.info("✉️ Email verified: \(user.isEmailVerified)")
+        } else {
+            logger.info("❌ User signed out")
+        }
+    }
+    
+    // Monitor Firestore connection
+    let db = Firestore.firestore()
+    db.enableNetwork { error in
+        if let error = error {
+            logger.error("❌ Firestore connection failed: \(error.localizedDescription)")
+        } else {
+            logger.info("✅ Firestore connected successfully")
+        }
+    }
 }
 #endif
                     </div>
                 </div>
-            </section>
 
-            <!-- App Architecture -->
-            <section id="architecture" class="section">
-                <h2>🏗️ App Architecture</h2>
-                
-                <h3>File Structure</h3>
-                <div class="code-block">
-Authentication Template/
-├── App/
-│   ├── AuthenticationTemplateApp.swift
-│   └── ContentView.swift
-├── Views/
-│   ├── Authentication/
-│   │   ├── WelcomeView.swift
-│   │   ├── EmailAuthenticationView.swift
-│   │   ├── EmailVerificationView.swift
-│   │   └── UsernameSelectionView.swift
-│   ├── Main/
-│   │   ├── MainTabView.swift
-│   │   └── SettingsView.swift
-│   └── Components/
-│       └── UIComponents.swift
-├── ViewModels/
-│   └── AuthenticationViewModel.swift
-├── Models/
-│   ├── AppUser.swift
-│   ├── AuthError.swift
-│   └── AuthenticationMode.swift
-├── Services/
-│   ├── FirebaseManager.swift
-│   └── AuthenticationManager.swift
-├── Utilities/
-│   ├── AppConfig.swift
-│   ├── AppTheme.swift
-│   └── LocalizationKeys.swift
-└── Resources/
-    ├── Localizable.strings (en)
-    ├── Localizable.strings (de)
-    ├── Localizable.strings (ar)
-    └── GoogleService-Info.plist
+                <h3>Testing Checklist</h3>
+                <div class="success">
+                    <h4>✅ Manual Testing Checklist</h4>
+                    <ul>
+                        <li>☐ Email registration with valid email</li>
+                        <li>☐ Email registration with invalid email format</li>
+                        <li>☐ Email verification process</li>
+                        <li>☐ Email login with correct credentials</li>
+                        <li>☐ Email login with incorrect credentials</li>
+                        <li>☐ Google Sign-In flow (on device)</li>
+                        <li>☐ Apple Sign-In flow (on device)</li>
+                        <li>☐ Password reset functionality</li>
+                        <li>☐ Username selection and validation</li>
+                        <li>☐ Logout functionality</li>
+                        <li>☐ Network error handling</li>
+                        <li>☐ UI responsiveness on different devices</li>
+                        <li>☐ Localization in all supported languages</li>
+                        <li>☐ Accessibility features (VoiceOver)</li>
+                        <li>☐ Dark mode compatibility</li>
+                    </ul>
                 </div>
 
-                <h3>MVVM Architecture</h3>
-                <p>The app follows the Model-View-ViewModel (MVVM) pattern for clean separation of concerns:</p>
-                <ul>
-                    <li><strong>Models:</strong> Data structures (AppUser, AuthError)</li>
-                    <li><strong>Views:</strong> SwiftUI views for UI presentation</li>
-                    <li><strong>ViewModels:</strong> Business logic and state management</li>
-                    <li><strong>Services:</strong> External service integrations (Firebase, Google, Apple)</li>
-                </ul>
-            </section>
+                <h3>Common Error Messages</h3>
+                <div class="code-block">
+// Common Firebase Auth error codes and solutions:
 
-            <!-- Testing -->
-            <section id="testing" class="section">
-                <h2>🧪 Testing Checklist</h2>
-                
-                <h3>Manual Testing</h3>
-                <ul>
-                    <li>✅ Email registration with verification</li>
-                    <li>✅ Email login with valid/invalid credentials</li>
-                    <li>✅ Google Sign-In flow</li>
-                    <li>✅ Apple Sign-In flow</li>
-                    <li>✅ Email verification process</li>
-                    <li>✅ Password reset functionality</li>
-                    <li>✅ Username selection and validation</li>
-                    <li>✅ Logout functionality</li>
-                    <li>✅ Error handling for network issues</li>
-                    <li>✅ UI responsiveness on different devices</li>
-                    <li>✅ Localization in all supported languages</li>
-                    <li>✅ Accessibility features</li>
-                </ul>
+// ERROR_INVALID_EMAIL
+"The email address is badly formatted."
+// Solution: Implement proper email validation
 
-                <h3>Device Compatibility</h3>
-                <p>Test on these device sizes:</p>
-                <ul>
-                    <li>iPhone SE (4.7" display)</li>
-                    <li>iPhone 12/13/14 (6.1" display)</li>
-                    <li>iPhone 12/13/14 Pro Max (6.7" display)</li>
-                    <li>iPad (if supporting tablet)</li>
-                </ul>
+// ERROR_USER_NOT_FOUND
+"There is no user record corresponding to this identifier."
+// Solution: Check if user exists before sign-in
+
+// ERROR_WRONG_PASSWORD
+"The password is invalid or the user does not have a password."
+// Solution: Implement password reset flow
+
+// ERROR_EMAIL_ALREADY_IN_USE
+"The email address is already in use by another account."
+// Solution: Redirect to sign-in or account recovery
+
+// ERROR_NETWORK_REQUEST_FAILED
+"A network error has occurred."
+// Solution: Check internet connection and retry
+                </div>
             </section>
 
             <!-- Support -->
             <section id="support" class="section">
-                <h2>📞 Support & Next Steps</h2>
+                <h2>📞 Support & Resources</h2>
                 
-                <h3>What's Included</h3>
-                <ul>
-                    <li>✅ Complete source code with documentation</li>
-                    <li>✅ Firebase configuration guide</li>
-                    <li>✅ Customization examples</li>
-                    <li>✅ Multi-language support</li>
-                    <li>✅ Production-ready authentication system</li>
-                </ul>
+                <h3>What's Included in Your Purchase</h3>
+                <div class="success">
+                    <ul>
+                        <li>✅ Complete SwiftUI source code with MVVM architecture</li>
+                        <li>✅ Firebase integration with authentication and Firestore</li>
+                        <li>✅ Google Sign-In and Apple Sign-In implementation</li>
+                        <li>✅ Email verification and password reset flows</li>
+                        <li>✅ Username selection with real-time availability</li>
+                        <li>✅ Multi-language support (English, German, Arabic)</li>
+                        <li>✅ Dark theme with customizable colors</li>
+                        <li>✅ Complete documentation and setup guide</li>
+                        <li>✅ Production-ready code with error handling</li>
+                        <li>✅ Accessibility support and iOS guidelines compliance</li>
+                    </ul>
+                </div>
 
-                <h3>After Setup</h3>
+                <h3>Next Steps After Setup</h3>
                 <ol class="step-list">
-                    <li><strong>Test all authentication flows</strong> thoroughly</li>
-                    <li><strong>Customize branding</strong> to match your app</li>
-                    <li><strong>Add your app-specific features</strong> on top of the authentication</li>
-                    <li><strong>Configure analytics</strong> and crash reporting</li>
-                    <li><strong>Submit to App Store</strong> when ready</li>
+                    <li><strong>Test Thoroughly</strong> - Use the testing checklist to verify all features work correctly</li>
+                    <li><strong>Customize Branding</strong> - Update colors, fonts, and app name to match your brand</li>
+                    <li><strong>Add Your Features</strong> - Build your app's unique functionality on top of the authentication system</li>
+                    <li><strong>Configure Analytics</strong> - Set up Firebase Analytics and crash reporting</li>
+                    <li><strong>Prepare for Store</strong> - Add app icons, screenshots, and store listing content</li>
+                    <li><strong>Submit to App Store</strong> - Follow Apple's review guidelines for successful approval</li>
                 </ol>
+
+                <h3>Development Best Practices</h3>
+                <div class="info">
+                    <h4>🎯 Recommended Development Workflow</h4>
+                    <ul>
+                        <li><strong>Start with Authentication</strong> - Get authentication working first before adding features</li>
+                        <li><strong>Test on Real Devices</strong> - Always test authentication flows on physical devices</li>
+                        <li><strong>Use Version Control</strong> - Commit your working authentication setup before modifications</li>
+                        <li><strong>Follow iOS Guidelines</strong> - Adhere to Apple's Human Interface Guidelines</li>
+                        <li><strong>Handle Edge Cases</strong> - Test offline scenarios and network failures</li>
+                        <li><strong>Monitor Performance</strong> - Use Xcode Instruments to optimize app performance</li>
+                    </ul>
+                </div>
+
+                <h3>Firebase Security Best Practices</h3>
+                <div class="warning">
+                    <h4>🔒 Important Security Considerations</h4>
+                    <ul>
+                        <li><strong>Keep GoogleService-Info.plist Secure</strong> - Don't commit to public repositories</li>
+                        <li><strong>Use Environment-Specific Configs</strong> - Separate dev/staging/production Firebase projects</li>
+                        <li><strong>Review Firestore Rules</strong> - Ensure users can only access their own data</li>
+                        <li><strong>Enable App Check</strong> - Protect your Firebase resources from abuse</li>
+                        <li><strong>Monitor Usage</strong> - Set up billing alerts and usage monitoring</li>
+                        <li><strong>Regular Security Reviews</strong> - Periodically review and update security rules</li>
+                    </ul>
+                </div>
 
                 <div class="success">
                     <h4>🎉 Congratulations!</h4>
-                    <p>You now have a professional, production-ready authentication system that would typically take weeks to develop from scratch. Focus on building your unique app features while the authentication handles user management seamlessly.</p>
+                    <p>You now have a professional, production-ready authentication system that would typically take weeks to develop from scratch. This template provides a solid foundation that follows iOS best practices and Firebase security guidelines.</p>
+                    <p><strong>Focus on building your unique app features</strong> while the authentication handles user management seamlessly. Your users will enjoy a smooth, secure onboarding experience across all authentication methods.</p>
+                </div>
+
+                <div class="info">
+                    <h4>📱 Ready for the App Store</h4>
+                    <p>This template is designed to meet App Store review guidelines and includes:</p>
+                    <ul>
+                        <li>Privacy-compliant authentication flows</li>
+                        <li>Proper error handling and user feedback</li>
+                        <li>Accessibility support for all users</li>
+                        <li>Responsive design for all iPhone sizes</li>
+                        <li>Professional UI following iOS design principles</li>
+                    </ul>
                 </div>
             </section>
         </div>
@@ -1345,6 +1245,10 @@ Authentication Template/
                         block: 'start'
                     });
                 }
+                
+                // Close mobile nav if open
+                const navMenu = document.getElementById('nav-menu');
+                navMenu.classList.remove('active');
             });
         });
 
@@ -1374,6 +1278,12 @@ Authentication Template/
                     scrollButton.addEventListener('click', () => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     });
+                    scrollButton.addEventListener('mouseenter', () => {
+                        scrollButton.style.transform = 'scale(1.1)';
+                    });
+                    scrollButton.addEventListener('mouseleave', () => {
+                        scrollButton.style.transform = 'scale(1)';
+                    });
                     document.body.appendChild(scrollButton);
                 }
             } else {
@@ -1400,7 +1310,122 @@ Authentication Template/
                 section.style.opacity = '0';
                 observer.observe(section);
             });
+            
+            // Add image error handling for better UX
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const fallbackText = document.createElement('div');
+                    fallbackText.style.cssText = `
+                        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+                        border: 2px dashed #007AFF;
+                        border-radius: 8px;
+                        padding: 40px 20px;
+                        text-align: center;
+                        color: #666;
+                        font-style: italic;
+                        margin: 20px 0;
+                    `;
+                    fallbackText.innerHTML = `
+                        <div style="font-size: 48px; margin-bottom: 10px;">📱</div>
+                        <div>Screenshot wird geladen...</div>
+                        <div style="font-size: 12px; margin-top: 5px; opacity: 0.7;">
+                            ${this.alt || 'Setup Screenshot'}
+                        </div>
+                    `;
+                    this.parentNode.insertBefore(fallbackText, this);
+                });
+            });
+            
+            // Add copy code functionality
+            document.querySelectorAll('.code-block').forEach(block => {
+                const copyButton = document.createElement('button');
+                copyButton.innerHTML = '📋 Copy';
+                copyButton.style.cssText = `
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: #d4d4d4;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    transition: all 0.3s ease;
+                `;
+                
+                copyButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(block.textContent);
+                    copyButton.innerHTML = '✅ Copied!';
+                    setTimeout(() => {
+                        copyButton.innerHTML = '📋 Copy';
+                    }, 2000);
+                });
+                
+                copyButton.addEventListener('mouseenter', () => {
+                    copyButton.style.background = 'rgba(255, 255, 255, 0.2)';
+                });
+                
+                copyButton.addEventListener('mouseleave', () => {
+                    copyButton.style.background = 'rgba(255, 255, 255, 0.1)';
+                });
+                
+                block.style.position = 'relative';
+                block.appendChild(copyButton);
+            });
         });
+
+        // Add progress indicator for setup steps
+        function updateProgressIndicator() {
+            const setupSection = document.querySelector('#setup');
+            if (!setupSection) return;
+            
+            const progressContainer = document.createElement('div');
+            progressContainer.style.cssText = `
+                position: sticky;
+                top: 80px;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 15px;
+                border-radius: 10px;
+                margin: 20px 0;
+                border: 1px solid rgba(0, 122, 255, 0.2);
+                z-index: 999;
+            `;
+            
+            progressContainer.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="font-weight: 600; color: #007AFF;">📋 Setup Progress:</div>
+                    <div style="flex: 1; background: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                        <div id="progress-bar" style="height: 100%; background: linear-gradient(45deg, #007AFF, #5856D6); width: 0%; transition: width 0.3s ease;"></div>
+                    </div>
+                    <div id="progress-text" style="font-weight: 500; color: #666;">0 / 34</div>
+                </div>
+            `;
+            
+            setupSection.insertBefore(progressContainer, setupSection.firstChild);
+            
+            // Update progress based on visible steps
+            const steps = setupSection.querySelectorAll('h3');
+            const observer = new IntersectionObserver((entries) => {
+                let visibleSteps = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        visibleSteps++;
+                    }
+                });
+                
+                const progress = Math.min((visibleSteps / steps.length) * 100, 100);
+                document.getElementById('progress-bar').style.width = progress + '%';
+                document.getElementById('progress-text').textContent = `${Math.min(visibleSteps, steps.length)} / ${steps.length}`;
+            }, { threshold: 0.5 });
+            
+            steps.forEach(step => observer.observe(step));
+        }
+        
+        // Initialize progress indicator
+        setTimeout(updateProgressIndicator, 1000);
     </script>
 </body>
 </html>
