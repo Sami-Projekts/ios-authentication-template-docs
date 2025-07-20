@@ -51,9 +51,10 @@ header {
 
 #logo {
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     margin: 0;
+    line-height: 1.2;
 }
 
 #nav ul {
@@ -67,11 +68,12 @@ header {
 
 #nav ul li a {
     display: block;
-    padding: 15px 20px;
+    padding: 12px 20px;
     color: rgba(255,255,255,0.8);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s ease;
+    line-height: 1.3;
 }
 
 #nav ul li a:hover,
@@ -82,8 +84,10 @@ header {
 }
 
 #nav ul li a i {
-    margin-right: 10px;
+    margin-right: 8px;
     width: 16px;
+    display: inline-block;
+    text-align: center;
 }
 
 #wrapper {
@@ -120,6 +124,15 @@ h2 {
     font-size: 1.8em;
     color: #34495e;
     margin-top: 40px;
+}
+
+h3 {
+    font-size: 1.4em;
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+    padding-left: 15px;
 }
 
 .feature_list {
@@ -164,6 +177,11 @@ code {
     border-radius: 3px;
     font-family: 'Courier New', monospace;
     color: #e74c3c;
+    cursor: pointer;
+}
+
+code:hover {
+    background: #e8e8e8;
 }
 
 .borderTop {
@@ -190,9 +208,87 @@ code {
     border-radius: 5px;
 }
 
+.info {
+    background: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-left: 5px solid #17a2b8;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.warning {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-left: 5px solid #dc3545;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
 .vid-bg-area {
     background: white;
     min-height: 100vh;
+}
+
+.step-description {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.step-description h4 {
+    color: #3498db;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.step-description p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.copy-text {
+    background: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-text:hover {
+    background: #bbdefb;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-left: 5px solid #3498db;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
@@ -209,6 +305,10 @@ code {
     .container {
         padding: 20px;
     }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -220,20 +320,44 @@ code {
   </header>
   <nav id="nav">
     <ul>
-      <li><a href="#xcodeversion" class="active"><i>📱</i> Which Xcode version is needed?</a></li>
-      <li><a href="#openproject"><i>📂</i> How to open the project in Xcode?</a></li>
-      <li><a href="#bundleid"><i>🏷️</i> How to change the Bundle ID?</a></li>
-      <li><a href="#appname"><i>✏️</i> How to change app name?</a></li>
-      <li><a href="#firebase"><i>🔥</i> How to setup Firebase?</a></li>
-      <li><a href="#googlesignin"><i>🌐</i> How to setup Google Sign-In?</a></li>
-      <li><a href="#applesignin"><i>🍎</i> How to setup Apple Sign-In?</a></li>
-      <li><a href="#configuration"><i>⚙️</i> How to configure app settings?</a></li>
-      <li><a href="#customization"><i>🎨</i> How to customize theme?</a></li>
-      <li><a href="#localization"><i>🌍</i> How to add languages?</a></li>
-      <li><a href="#troubleshooting"><i>🔧</i> Troubleshooting Guide</a></li>
-      <li><a href="#buildapp"><i>🚀</i> How to build and archive app?</a></li>
-      <li><a href="#appstore"><i>📱</i> How to submit to App Store?</a></li>
-      <li><a href="#support"><i>💬</i> Support & Contact</a></li>
+      <li><a href="#getting-started" class="active"><i>🎯</i> Getting Started</a></li>
+      <li><a href="#features"><i>✨</i> Complete Feature Set</a></li>
+      <li><a href="#prerequisites"><i>📋</i> Prerequisites</a></li>
+      <li><a href="#step1"><i>📱</i> Step 1: Download and Open</a></li>
+      <li><a href="#step2"><i>📦</i> Step 2: Package Dependencies</a></li>
+      <li><a href="#step3"><i>🔥</i> Step 3: Add Firebase SDK</a></li>
+      <li><a href="#step4"><i>⚙️</i> Step 4: Select Firebase Products</a></li>
+      <li><a href="#step5"><i>🌐</i> Step 5: Add Google Sign-In</a></li>
+      <li><a href="#step6"><i>🏗️</i> Step 6: Create Firebase Project</a></li>
+      <li><a href="#step7"><i>🏷️</i> Step 7: Find Bundle ID</a></li>
+      <li><a href="#step8"><i>🔐</i> Step 8: Authentication Methods</a></li>
+      <li><a href="#step9"><i>📧</i> Step 9: Enable Email/Password</a></li>
+      <li><a href="#step10"><i>🌐</i> Step 10: Enable Google Sign-In</a></li>
+      <li><a href="#step11"><i>🍎</i> Step 11: Enable Apple Sign-In</a></li>
+      <li><a href="#step12"><i>✅</i> Step 12: Verify Methods</a></li>
+      <li><a href="#step13"><i>🗄️</i> Step 13: Create Firestore</a></li>
+      <li><a href="#step14"><i>🔒</i> Step 14: Production Mode</a></li>
+      <li><a href="#step15"><i>📜</i> Step 15: Access Rules</a></li>
+      <li><a href="#step16"><i>🛡️</i> Step 16: Security Rules</a></li>
+      <li><a href="#step17"><i>⚙️</i> Step 17: Project Settings</a></li>
+      <li><a href="#step18"><i>⬇️</i> Step 18: Download Config</a></li>
+      <li><a href="#step19"><i>📁</i> Step 19: Add to Xcode</a></li>
+      <li><a href="#step20"><i>🔗</i> Step 20: URL Scheme</a></li>
+      <li><a href="#step21"><i>🆔</i> Step 21: Copy CLIENT_ID</a></li>
+      <li><a href="#step22"><i>🔧</i> Step 22: Configure CLIENT_ID</a></li>
+      <li><a href="#step23"><i>🍎</i> Step 23: Apple Developer</a></li>
+      <li><a href="#step24"><i>🆕</i> Step 24: Create Identifier</a></li>
+      <li><a href="#step25"><i>📱</i> Step 25: Select App Type</a></li>
+      <li><a href="#step26"><i>➡️</i> Step 26: Continue Setup</a></li>
+      <li><a href="#step27"><i>🏷️</i> Step 27: Configure Bundle</a></li>
+      <li><a href="#step28"><i>📝</i> Step 28: Register App ID</a></li>
+      <li><a href="#step29"><i>🔑</i> Step 29: Navigate to Keys</a></li>
+      <li><a href="#step30"><i>🍎</i> Step 30: Create Apple Key</a></li>
+      <li><a href="#step31"><i>🔗</i> Step 31: Configure Key</a></li>
+      <li><a href="#step32"><i>📱</i> Step 32: Add Capability</a></li>
+      <li><a href="#customization"><i>🎨</i> Easy Customization</a></li>
+      <li><a href="#troubleshooting"><i>🔧</i> Troubleshooting</a></li>
+      <li><a href="#support"><i>💬</i> Support & Resources</a></li>
     </ul>
   </nav>  
 </section>
@@ -243,7 +367,7 @@ code {
     <section id="one">
       <div class="container">
         <div class="note">
-          <b style="color:#ff0000;font-size:20px">Note: You must configure Firebase and Apple Developer Portal before running your project. Follow this guide step by step.</b>
+          <b style="color:#ff0000;font-size:20px">Note: You must configure Firebase and Apple Developer Portal before running your project. Follow this guide step by step for successful setup.</b>
         </div>
         
         <header class="major">
@@ -255,291 +379,1087 @@ code {
             <p class="prepend-top"> 
               <strong>Created: January 2025<br>
               Developer: SamiDev Studio<br>
-              Platform: iOS 15.0+ | SwiftUI<br>
+              Platform: iOS 15.0+ | SwiftUI + MVVM<br>
               Contact: <a href="#support" style='color:#3498db'>Support Section</a></strong> 
             </p>
           </div>
           <div class="span-12 last">
             <p class="prepend-top append-0">
-              Thank you for purchasing this iOS Authentication Template! This comprehensive guide will help you set up Firebase authentication, Google Sign-In, Apple Sign-In, and customize the app for your needs. If you have questions, please check the support section below.
+              Thank you for purchasing this iOS Authentication Template! This comprehensive SwiftUI solution provides Firebase authentication, Google Sign-In, Apple Sign-In, email verification, username selection, and much more. Follow this step-by-step guide to set up your professional authentication system.
             </p>
           </div>
         </div>
 
         <div class="section_bdr"></div>
         
-        <section id="xcodeversion">
+        <section id="getting-started">
           <div class="container"> <br>
-            <h2>Which Xcode version is needed?</h2>
-            <p><b>Recommended: Xcode 15.0 or later</b>, you can download from:</p>
-            <ul class="feature_list">
-              <li><a style="color:#3498db" href="https://developer.apple.com/xcode/" target="_blank">Mac App Store</a></li>
-              <li><a style="color:#3498db" href="https://developer.apple.com/download/" target="_blank">Apple Developer Portal</a></li>
-            </ul>
-            <p><b>Requirements:</b></p>
-            <ul class="feature_list">
-              <li>macOS 13.0 or later</li>
-              <li>iOS 15.0+ deployment target</li>
-              <li>Swift 5.9 or later</li>
-            </ul>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="openproject">
-          <div class="container"> <br>
-            <h2>How to Open The Project in Xcode?</h2>
-            <ul class="feature_list">
-              <li>Extract the downloaded ZIP file</li>
-              <li>Navigate to the project folder</li>
-              <li>Double-click on <code>Authentication-Template.xcodeproj</code></li>
-              <li>Xcode will open with the complete project structure</li>
-              <li>Wait for Xcode to index the project files</li>
-            </ul>
-            <p><b>Project Structure:</b></p>
-            <ul class="feature_list">
-              <li><b>App/</b> - Main app configuration</li>
-              <li><b>Views/</b> - SwiftUI views for authentication</li>
-              <li><b>ViewModels/</b> - MVVM architecture logic</li>
-              <li><b>Models/</b> - Data models</li>
-              <li><b>Services/</b> - Firebase and authentication services</li>
-              <li><b>Utilities/</b> - Helper functions and configurations</li>
-            </ul>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="bundleid">
-          <div class="container"> <br>
-            <h2>How to change the Bundle ID?</h2>
-            <p>You need to change the Bundle ID to your own unique identifier:</p>
-            <ul class="feature_list">
-              <li>In Xcode, select your project in the navigator</li>
-              <li>Click on your target under "TARGETS"</li>
-              <li>Go to the "General" tab</li>
-              <li>Find "Bundle Identifier" in the Identity section</li>
-              <li>Change it to your unique ID (e.g., <code>com.yourcompany.authapp</code>)</li>
-              <li>Make sure it's unique and follows reverse domain notation</li>
-            </ul>
-            <p><b style="color:#e74c3c">Important:</b> This Bundle ID must match exactly in Firebase and Apple Developer Portal!</p>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="appname">
-          <div class="container"> <br>
-            <h2>How to change app name?</h2>
-            <ul class="feature_list">
-              <li>Open <code>AppConfig.swift</code> file</li>
-              <li>Find the <code>appName</code> property</li>
-              <li>Change <code>static let appName = "Your App Name"</code></li>
-              <li>For display name, go to Xcode target settings → General → Display Name</li>
-            </ul>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="firebase">
-          <div class="container"> <br>
-            <h2>How to setup Firebase?</h2>
+            <h2>🎯 Getting Started</h2>
             
-            <h3>Step 1: Create Firebase Project</h3>
+            <div class="info">
+              <h4>🎉 Two Ways to Get Started</h4>
+              <p>Choose the approach that works best for you:</p>
+            </div>
+
+            <h3>Option 1: Complete Template (Recommended)</h3>
+            <p>Perfect for new projects or when you want a complete authentication system.</p>
             <ul class="feature_list">
-              <li>Go to <a href="https://console.firebase.google.com" style="color:#3498db">Firebase Console</a></li>
-              <li>Click "Create a project"</li>
-              <li>Enter your project name</li>
-              <li>Disable Google Analytics (optional)</li>
-              <li>Click "Create project"</li>
+              <li>Download the template and open in Xcode 15+</li>
+              <li>Configure Firebase (see detailed setup below)</li>
+              <li>Customize branding in AppConfig.swift and AppTheme.swift</li>
+              <li>Run and test all authentication flows</li>
+              <li>Build your app features on top of the authentication system</li>
             </ul>
 
-            <h3>Step 2: Add iOS App</h3>
+            <h3>Option 2: Integrate into Existing Project</h3>
+            <p>Add professional authentication to your existing iOS app.</p>
             <ul class="feature_list">
-              <li>Click "Add app" and select iOS</li>
-              <li>Enter your Bundle ID (same as in Xcode)</li>
-              <li>Enter App nickname (optional)</li>
-              <li>Click "Register app"</li>
-            </ul>
-
-            <h3>Step 3: Download Configuration File</h3>
-            <ul class="feature_list">
-              <li>Download <code>GoogleService-Info.plist</code></li>
-              <li>Drag it into your Xcode project root</li>
-              <li>Make sure "Add to target" is checked</li>
-              <li>Click "Add"</li>
-            </ul>
-
-            <h3>Step 4: Enable Authentication</h3>
-            <ul class="feature_list">
-              <li>In Firebase Console, go to Authentication</li>
-              <li>Click "Get started"</li>
-              <li>Go to "Sign-in method" tab</li>
-              <li>Enable "Email/Password"</li>
-              <li>Enable "Google" (for Google Sign-In)</li>
-              <li>Enable "Apple" (for Apple Sign-In)</li>
-            </ul>
-
-            <h3>Step 5: Setup Firestore Database</h3>
-            <ul class="feature_list">
-              <li>Go to Firestore Database</li>
-              <li>Click "Create database"</li>
-              <li>Choose "Start in production mode"</li>
-              <li>Select your preferred location</li>
-              <li>Click "Done"</li>
+              <li>Copy core files (ViewModels, Models, Services, Utilities)</li>
+              <li>Install dependencies (Firebase, GoogleSignIn)</li>
+              <li>Integrate views into your app's navigation flow</li>
+              <li>Configure Firebase and authentication providers</li>
+              <li>Test integration and customize as needed</li>
             </ul>
             <div class="section_bdr"></div>
           </div>
         </section>
 
-        <section id="googlesignin">
+        <section id="features">
           <div class="container"> <br>
-            <h2>How To Setup Google Sign-In?</h2>
+            <h2>✨ Complete Feature Set</h2>
             
-            <h3>Step 1: Configure in Firebase</h3>
-            <ul class="feature_list">
-              <li>In Firebase Console → Authentication → Sign-in method</li>
-              <li>Click on "Google"</li>
-              <li>Enable Google Sign-In</li>
-              <li>Set your support email</li>
-              <li>Click "Save"</li>
-            </ul>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h4>Multiple Authentication Methods</h4>
+                <p>Email/Password, Google Sign-In, Apple Sign-In with seamless switching between methods</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">✉️</div>
+                <h4>Email Verification System</h4>
+                <p>Automatic email verification with resend functionality and user-friendly verification pending screen</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">👤</div>
+                <h4>Username Selection</h4>
+                <p>Interactive username picker with real-time availability checking and validation</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4>Password Reset</h4>
+                <p>Secure password reset flow with email verification and user guidance</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h4>Modern UI/UX</h4>
+                <p>Beautiful dark theme, smooth animations, responsive design for all iPhone sizes</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h4>Multilingual Support</h4>
+                <p>Built-in localization for English, German, and Arabic with easy expansion for more languages</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h4>Easy Customization</h4>
+                <p>Centralized configuration files for colors, themes, app settings, and authentication options</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>Security Features</h4>
+                <p>Input validation, temporary email blocking, secure error handling, and Firebase security rules</p>
+              </div>
+            </div>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
 
-            <h3>Step 2: Add URL Scheme</h3>
+        <section id="prerequisites">
+          <div class="container"> <br>
+            <h2>📋 Prerequisites</h2>
             <ul class="feature_list">
-              <li>In Xcode, go to your target → Info tab</li>
-              <li>Expand "URL Types"</li>
-              <li>Click "+" to add new URL Type</li>
-              <li>In "URL Schemes", paste your <code>REVERSED_CLIENT_ID</code> from GoogleService-Info.plist</li>
-              <li>Set Identifier to "google-signin"</li>
-            </ul>
-
-            <h3>Step 3: Test Google Sign-In</h3>
-            <ul class="feature_list">
-              <li>Build and run on a physical device</li>
-              <li>Google Sign-In doesn't work on simulator</li>
-              <li>Tap "Sign in with Google" button</li>
-              <li>Complete the authentication flow</li>
+              <li><strong>Xcode 15.0 or later</strong></li>
+              <li><strong>iOS 15.0+ deployment target</strong></li>
+              <li><strong>Swift 5.9 or later</strong></li>
+              <li><strong>Active Apple Developer Account</strong></li>
+              <li><strong>Google Developer Account</strong> (for Google Sign-In)</li>
             </ul>
             <div class="section_bdr"></div>
           </div>
         </section>
 
-        <section id="applesignin">
+        <section id="step1">
           <div class="container"> <br>
-            <h2>How To Setup Apple Sign-In?</h2>
-
-            <h3>Step 1: Apple Developer Portal</h3>
-            <ul class="feature_list">
-              <li>Go to <a href="https://developer.apple.com" style="color:#3498db">Apple Developer Portal</a></li>
-              <li>Navigate to Certificates, Identifiers & Profiles</li>
-              <li>Create or edit your App ID</li>
-              <li>Enable "Sign In with Apple" capability</li>
-              <li>Save the configuration</li>
-            </ul>
-
-            <h3>Step 2: Xcode Configuration</h3>
-            <ul class="feature_list">
-              <li>In Xcode, go to Signing & Capabilities</li>
-              <li>Click "+ Capability"</li>
-              <li>Add "Sign in with Apple"</li>
-              <li>The capability will appear in your project</li>
-            </ul>
-
-            <h3>Step 3: Firebase Configuration</h3>
-            <ul class="feature_list">
-              <li>In Firebase Console → Authentication → Sign-in method</li>
-              <li>Click on "Apple"</li>
-              <li>Enable Apple Sign-In</li>
-              <li>Configure Service ID and Team ID</li>
-              <li>Click "Save"</li>
-            </ul>
+            <h2>Step 1: Download and Open Project</h2>
+            <div class="step-description">
+              <h4>📱 What you'll do:</h4>
+              <p>Download the iOS Authentication Template from CodeCanyon and open it in Xcode. This template includes all the necessary files and structure for a complete authentication system.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Download the template ZIP file from your CodeCanyon purchase</li>
+                <li>Extract the ZIP file to your desired location</li>
+                <li>Open Xcode 15 or later</li>
+                <li>Navigate to the extracted folder</li>
+                <li>Double-click the .xcodeproj file to open the project</li>
+              </ul>
+              
+              <h4>✅ What you'll see:</h4>
+              <p>The project will open with a complete folder structure including Views, ViewModels, Models, Services, and Utilities folders, all organized following MVVM architecture.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png" alt="Xcode Project Overview"/>
+            </span>
             <div class="section_bdr"></div>
           </div>
         </section>
 
-        <section id="configuration">
+        <section id="step2">
           <div class="container"> <br>
-            <h2>How to configure app settings?</h2>
-            
-            <p>Open <code>AppConfig.swift</code> to customize your app:</p>
-            
-            <h3>Basic Settings</h3>
-            <ul class="feature_list">
-              <li><code>appName</code> - Your app display name</li>
-              <li><code>appVersion</code> - App version number</li>
-              <li><code>minimumPasswordLength</code> - Password requirements</li>
-              <li><code>requireEmailVerification</code> - Email verification toggle</li>
-            </ul>
+            <h2>Step 2: Access Package Dependencies</h2>
+            <div class="step-description">
+              <h4>📦 What you'll do:</h4>
+              <p>Navigate to Package Dependencies in Xcode to add the required Firebase and Google Sign-In packages.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In Xcode, select your project in the navigator</li>
+                <li>Click on your target under "TARGETS"</li>
+                <li>Go to the "Package Dependencies" tab</li>
+                <li>Click the "+" button to add a new package</li>
+                <li>You'll see the "Add Package Dependency" window</li>
+              </ul>
+              
+              <h4>📋 Required packages:</h4>
+              <p>You'll need to add these two packages in the next steps:</p>
+              <ul class="feature_list">
+                <li>Firebase iOS SDK</li>
+                <li>Google Sign-In iOS</li>
+              </ul>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png" alt="Package Dependencies in Xcode"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
 
-            <h3>Authentication Options</h3>
-            <ul class="feature_list">
-              <li><code>enableAppleSignIn</code> - Enable/disable Apple Sign-In</li>
-              <li><code>enableGoogleSignIn</code> - Enable/disable Google Sign-In</li>
-              <li><code>enableEmailSignIn</code> - Enable/disable email authentication</li>
-            </ul>
+        <section id="step3">
+          <div class="container"> <br>
+            <h2>Step 3: Add Firebase iOS SDK</h2>
+            <div class="step-description">
+              <h4>🔥 What you'll do:</h4>
+              <p>Add the Firebase iOS SDK URL to your project to enable Firebase authentication and Firestore database functionality.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the "Add Package Dependency" window, paste the Firebase URL</li>
+                <li>Enter: https://github.com/firebase/firebase-ios-sdk</li>
+                <li>Click "Add Package" and wait for Xcode to resolve the package</li>
+                <li>The package will be validated and ready for product selection</li>
+              </ul>
+              
+              <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">
+                📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
+              </div>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" alt="Adding Firebase SDK URL"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
 
-            <h3>Username Settings</h3>
-            <ul class="feature_list">
-              <li><code>usernameMinLength</code> - Minimum username length</li>
-              <li><code>usernameMaxLength</code> - Maximum username length</li>
-            </ul>
+        <section id="step4">
+          <div class="container"> <br>
+            <h2>Step 4: Select Firebase Products</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Choose the specific Firebase products your authentication system needs.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>After Xcode resolves the Firebase package, you'll see a list of available products</li>
+                <li>Select <strong>FirebaseAuth</strong> - Essential for authentication</li>
+                <li>Select <strong>FirebaseFirestore</strong> - For storing user data and usernames</li>
+                <li>Select <strong>FirebaseStorage</strong> - For profile pictures (optional)</li>
+                <li>Click "Add Package" to add these to your project</li>
+              </ul>
+              
+              <h4>⚠️ Important:</h4>
+              <p>Only select these three products to keep your app size manageable!</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" alt="Firebase Products Selection"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step5">
+          <div class="container"> <br>
+            <h2>Step 5: Add Google Sign-In SDK</h2>
+            <div class="step-description">
+              <h4>🌐 What you'll do:</h4>
+              <p>Add the Google Sign-In iOS SDK to enable Google authentication in your app.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Click the "+" button again to add another package</li>
+                <li>Enter the Google Sign-In iOS SDK URL</li>
+                <li>Paste: https://github.com/google/GoogleSignIn-iOS</li>
+                <li>Click "Add Package" and wait for resolution</li>
+                <li>Select the GoogleSignIn product in the next step</li>
+              </ul>
+              
+              <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">
+                📋 Copy Google Sign-In URL: https://github.com/google/GoogleSignIn-iOS
+              </div>
+              
+              <h4>✅ Verification:</h4>
+              <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" alt="Google Sign-In SDK URL"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step6">
+          <div class="container"> <br>
+            <h2>Step 6: Create Firebase Project & Register iOS App</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Create a Firebase project and register your iOS app with the correct Bundle ID.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Go to https://console.firebase.google.com/ and create a new project</li>
+                <li>Click the iOS icon to add an iOS app</li>
+                <li>Enter your Bundle ID exactly as it appears in Xcode</li>
+                <li>Make sure the Bundle ID matches perfectly (case-sensitive)</li>
+                <li>Click 'Register app' to continue</li>
+              </ul>
+              
+              <div class="copy-text" onclick="copyToClipboard('https://console.firebase.google.com/')">
+                📋 Copy Firebase Console URL: https://console.firebase.google.com/
+              </div>
+              
+              <h4>📝 Critical Note:</h4>
+              <p>The Bundle ID must be identical to your Xcode project's Bundle Identifier!</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/6.png" alt="Firebase Console"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step7">
+          <div class="container"> <br>
+            <h2>Step 7: Find Bundle ID in Xcode</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Locate your app's Bundle Identifier in Xcode to ensure it matches Firebase configuration.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In Xcode, select your project in the navigator</li>
+                <li>Click on your target under "TARGETS"</li>
+                <li>Go to the "General" tab</li>
+                <li>Find "Bundle Identifier" in the Identity section</li>
+                <li>Copy this exact value to use in Firebase</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>This Bundle ID must match exactly between Xcode and Firebase - including capitalization and punctuation.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/7.png" alt="Bundle ID in Xcode"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step8">
+          <div class="container"> <br>
+            <h2>Step 8: Authentication Methods Overview</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>See which authentication methods we will activate in the Firebase Console.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Navigate to Firebase Console → Authentication → Sign-in method</li>
+                <li>You will see a list of available authentication providers</li>
+                <li>We will activate three main methods: Email/Password, Google, and Apple</li>
+                <li>These three methods provide comprehensive authentication options</li>
+                <li>Each method will be configured in the following steps</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Email/Password provides basic authentication, Google enables easy social sign-in, and Apple Sign-In ensures privacy compliance.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/8.png" alt="Authentication Methods in Firebase"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step9">
+          <div class="container"> <br>
+            <h2>Step 9: Enable Email/Password Authentication</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Enable email and password sign-in for your users.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the Sign-in method tab, find the 'Email/Password' provider</li>
+                <li>Click on 'Email/Password' to configure it</li>
+                <li>Turn on the 'Enable' switch</li>
+                <li>Optionally enable 'Email link' for passwordless sign-in</li>
+                <li>Click 'Save' to apply the changes</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Email/Password is the most basic authentication method and works on all platforms.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/9.png" alt="Enable Email/Password"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step10">
+          <div class="container"> <br>
+            <h2>Step 10: Enable Google Sign-In</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Configure Google Sign-In provider for easy user authentication.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Find 'Google' in the Sign-in provider list</li>
+                <li>Click on 'Google' to configure it</li>
+                <li>Turn on the 'Enable' switch</li>
+                <li>Set your project support email address</li>
+                <li>Click 'Save' to activate Google Sign-In</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Google Sign-In requires additional setup in Xcode with URL schemes.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/10.png" alt="Enable Google Sign-In"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step11">
+          <div class="container"> <br>
+            <h2>Step 11: Enable Apple Sign-In</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Configure Apple as a sign-in provider in the Firebase Console.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Find 'Apple' in the provider list and click on it</li>
+                <li>Turn on the 'Enable' switch to activate Apple Sign-In</li>
+                <li>Configure your App ID and Team ID from the Apple Developer Portal</li>
+                <li>Click 'Save' to activate Apple Sign-In authentication</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Apple Sign-In provides the highest level of user privacy and security.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/11.png" alt="Enable Apple Sign-In"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step12">
+          <div class="container"> <br>
+            <h2>Step 12: Verify Authentication Methods</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Confirm that all three authentication methods are properly enabled.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Check that Email/Password shows 'Enabled' status</li>
+                <li>Verify that Google Sign-In shows 'Enabled' status</li>
+                <li>Confirm that Apple Sign-In shows 'Enabled' status</li>
+                <li>All three methods should have green checkmarks</li>
+                <li>Your authentication setup is now ready</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Multiple authentication options give users flexibility when signing in.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/12.png" alt="Authentication Methods Enabled"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step13">
+          <div class="container"> <br>
+            <h2>Step 13: Create Firestore Database</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Set up Firestore database to store user data and app information.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the Firebase Console sidebar, click 'Firestore Database'</li>
+                <li>Click 'Create database' button to start the setup</li>
+                <li>You will be guided through the database creation process</li>
+                <li>This database will store user profiles and usernames</li>
+                <li>Continue to the next step for security mode selection</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Firestore will securely store user profiles, usernames, and other app data.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/13.png" alt="Create Firestore Database"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step14">
+          <div class="container"> <br>
+            <h2>Step 14: Select Production Mode</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Choose production mode for better security in your Firestore database.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Select 'Start in production mode' for better security</li>
+                <li>This ensures your database starts with secure default rules</li>
+                <li>You can adjust rules later as needed</li>
+                <li>Click 'Next' to continue to location selection</li>
+                <li>Production mode is recommended for live applications</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Production mode provides secure defaults that you can customize later.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/14.png" alt="Production Mode Selection"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step15">
+          <div class="container"> <br>
+            <h2>Step 15: Access Firestore Rules</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Navigate to the rules section to configure database security.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>After database creation, click on the 'Rules' tab</li>
+                <li>Here you will configure who can access your data</li>
+                <li>You will see the default security rules editor</li>
+                <li>We need to modify these rules for authentication</li>
+                <li>Continue to the next step to update the rules</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Proper security rules are essential for protecting user data.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/15.png" alt="Access Firestore Rules"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step16">
+          <div class="container"> <br>
+            <h2>Step 16: Configure Firestore Security Rules</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Set up security rules to protect user data in Firestore.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Replace the default rules with authentication-based rules</li>
+                <li>Copy the security rules provided below</li>
+                <li>Paste them into the rules editor</li>
+                <li>Ensure users can only read/write their own data</li>
+                <li>Click 'Publish' to apply the new security rules</li>
+              </ul>
+              
+              <div class="copy-text" onclick="copyToClipboard(`rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}`)">
+                📋 Copy Security Rules
+              </div>
+              
+              <h4>📝 Important Note:</h4>
+              <p>These rules ensure that only authenticated users can access their own data.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/16.png" alt="Configure Security Rules"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step17">
+          <div class="container"> <br>
+            <h2>Step 17: Access Project Settings</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Navigate to project settings to download the configuration file.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the Firebase Console, click the gear icon next to 'Project Overview'</li>
+                <li>Select 'Project settings' from the dropdown menu</li>
+                <li>Scroll down to the 'Your apps' section</li>
+                <li>Find your iOS app in the list</li>
+                <li>Here you will download the GoogleService-Info.plist file</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Project settings contain all your app configurations and download links.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/17.png" alt="Project Settings Access"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step18">
+          <div class="container"> <br>
+            <h2>Step 18: Download Configuration File</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Download the GoogleService-Info.plist file for your iOS app.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the 'Your apps' section, find your iOS app</li>
+                <li>Click the 'GoogleService-Info.plist' download button</li>
+                <li>Save the file to your Downloads folder</li>
+                <li>This file contains your Firebase project configuration</li>
+                <li>Keep this file secure as it contains API keys</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>This file is required for your iOS app to connect to Firebase services.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/18.png" alt="Download Configuration File"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step19">
+          <div class="container"> <br>
+            <h2>Step 19: Add GoogleService-Info.plist to Xcode</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Add the Firebase configuration file to your Xcode project and copy the REVERSED_CLIENT_ID.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Drag GoogleService-Info.plist from Downloads into the Xcode Project Navigator</li>
+                <li>Make sure 'Add to target' is checked for your app target</li>
+                <li>Open the GoogleService-Info.plist file in Xcode</li>
+                <li>Find and copy the 'REVERSED_CLIENT_ID' value</li>
+                <li>Keep this value - you'll need it for URL scheme configuration</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>The REVERSED_CLIENT_ID is essential for Google Sign-In to work properly.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/19.png" alt="Add GoogleService-Info.plist"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step20">
+          <div class="container"> <br>
+            <h2>Step 20: Configure URL Scheme for Google Sign-In</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Set up URL scheme in Xcode to handle Google Sign-In callbacks.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In Xcode, select your project, then your target</li>
+                <li>Go to the 'Info' tab and scroll down to 'URL Types'</li>
+                <li>Click '+' to add a new URL Type</li>
+                <li>In 'URL Schemes', paste your REVERSED_CLIENT_ID</li>
+                <li>In 'Identifier', enter 'google signin' as description</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>This URL scheme allows Google Sign-In to return to your app after authentication.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/20.png" alt="Configure URL Scheme"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step21">
+          <div class="container"> <br>
+            <h2>Step 21: Copy CLIENT_ID from GoogleService-Info.plist</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Find and copy the CLIENT_ID value for Firebase configuration.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Go back to GoogleService-Info.plist in Xcode</li>
+                <li>Find the 'CLIENT_ID' key (different from REVERSED_CLIENT_ID)</li>
+                <li>Copy the CLIENT_ID value</li>
+                <li>This will be used for Firebase Google Sign-In configuration</li>
+                <li>Keep this value for the next step</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>CLIENT_ID and REVERSED_CLIENT_ID are different values for different purposes.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/21.png" alt="Copy CLIENT_ID"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step22">
+          <div class="container"> <br>
+            <h2>Step 22: Add CLIENT_ID to Firebase Configuration</h2>
+            <div class="step-description">
+              <h4>🎯 What you will do:</h4>
+              <p>Configure CLIENT_ID in your app target for Firebase Google Sign-In.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In Xcode, select your target and go to the 'Info' tab</li>
+                <li>Find or add 'GG Client ID' in the configuration</li>
+                <li>Paste the CLIENT_ID value you copied from GoogleService-Info.plist</li>
+                <li>This connects your app with Google Sign-In services</li>
+                <li>Verify that the CLIENT_ID was entered correctly</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>This CLIENT_ID is required for Firebase to authenticate with Google services.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/22.png" alt="Configure CLIENT_ID"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step23">
+          <div class="container"> <br>
+            <h2>Step 23: Access Apple Developer Portal</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Navigate to Apple Developer Portal to configure App ID for Sign in with Apple.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Open https://developer.apple.com in your browser</li>
+                <li>Sign in with your Apple Developer account</li>
+                <li>Navigate to 'Certificates, Identifiers & Profiles'</li>
+                <li>Click on 'Identifiers' in the sidebar</li>
+                <li>This is where you'll configure your App ID for Apple Sign-In</li>
+              </ul>
+              
+              <div class="copy-text" onclick="copyToClipboard('https://developer.apple.com/')">
+                📋 Copy Apple Developer URL: https://developer.apple.com/
+              </div>
+              
+              <h4>📝 Important Note:</h4>
+              <p>You need an active Apple Developer Program membership to access these settings.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/23.png" alt="Apple Developer Portal"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step24">
+          <div class="container"> <br>
+            <h2>Step 24: Create New Identifier</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Add a new App ID identifier for your iOS application.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Click the '+' button to add a new identifier</li>
+                <li>You'll see different identifier types available</li>
+                <li>Select 'App IDs' to create an identifier for your app</li>
+                <li>This identifier will be used for Apple Sign-In configuration</li>
+                <li>Click 'Continue' to proceed</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>App IDs are unique identifiers for your iOS applications in the Apple ecosystem.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/24.png" alt="Create New Identifier"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step25">
+          <div class="container"> <br>
+            <h2>Step 25: Select App ID Type</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Choose the App ID type for your application.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Select 'App' as the App ID type</li>
+                <li>This is the standard type for iOS applications</li>
+                <li>App type provides access to most capabilities including Sign in with Apple</li>
+                <li>Click 'Continue' to proceed to configuration</li>
+                <li>Other types are for specific use cases like App Clips</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>App type is the most common choice for standard iOS applications.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/25.png" alt="Select App ID Type"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step26">
+          <div class="container"> <br>
+            <h2>Step 26: Continue App ID Setup</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Proceed with the App ID configuration process.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Review your App ID type selection</li>
+                <li>Ensure 'App' is selected as the type</li>
+                <li>Click 'Continue' to move to the next step</li>
+                <li>You'll now configure the specific details for your App ID</li>
+                <li>The next step will require your Bundle ID</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Double-check your selection before continuing as changes require recreating the App ID.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/26.png" alt="Continue App ID Setup"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step27">
+          <div class="container"> <br>
+            <h2>Step 27: Configure Bundle ID</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Enter your app's Bundle ID exactly as it appears in Xcode.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Enter a description for your App ID (e.g., 'MyApp Auth Template')</li>
+                <li>In Bundle ID field, enter your exact Bundle ID from Xcode</li>
+                <li>Use the same Bundle ID you used in Firebase setup</li>
+                <li>Format should be: com.yourcompany.yourapp</li>
+                <li>Ensure there are no typos - this must match exactly</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Bundle ID must be identical across Xcode, Firebase, and Apple Developer Portal.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/27.png" alt="Configure Bundle ID"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step28">
+          <div class="container"> <br>
+            <h2>Step 28: Register App ID</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Complete the App ID registration process.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Review all your App ID configuration details</li>
+                <li>Verify the Bundle ID is correct</li>
+                <li>Check that all required capabilities are selected</li>
+                <li>Click 'Register' to create your App ID</li>
+                <li>Wait for the registration to complete</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Registration creates your App ID and makes it available for use in your project.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/28.png" alt="Register App ID"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step29">
+          <div class="container"> <br>
+            <h2>Step 29: Navigate to Keys Section</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Create a new key for Sign in with Apple authentication.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the Apple Developer Portal sidebar, click on 'Keys'</li>
+                <li>This section manages authentication keys for Apple services</li>
+                <li>You'll create a key specifically for Sign in with Apple</li>
+                <li>Keys provide secure authentication between your app and Apple services</li>
+                <li>Click '+' to create a new key</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Keys are used for server-to-server authentication with Apple services.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/29.png" alt="Navigate to Keys"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step30">
+          <div class="container"> <br>
+            <h2>Step 30: Create Apple Sign-In Key</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Configure a new key for Sign in with Apple service.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Enter a descriptive name for your key (e.g., 'MyApp Sign in with Apple')</li>
+                <li>Check the 'Sign in with Apple' checkbox to enable this service</li>
+                <li>Click 'Configure' next to Sign in with Apple</li>
+                <li>This key will authenticate your app with Apple's Sign in service</li>
+                <li>Proceed to configure the key settings</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>Each key can be configured for multiple Apple services, but we only need Sign in with Apple.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/30.png" alt="Create Apple Sign-In Key"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step31">
+          <div class="container"> <br>
+            <h2>Step 31: Configure Key for App ID</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Associate your key with the App ID you created earlier.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>In the configuration screen, select your recently created App ID</li>
+                <li>This links the Sign in with Apple key to your specific app</li>
+                <li>Verify the correct App ID is selected from the dropdown</li>
+                <li>Click 'Save' to apply the configuration</li>
+                <li>This completes the key setup for your App ID</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>The key must be associated with your App ID to work with your application.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/31.png" alt="Configure Key for App ID"/>
+            </span>
+            <div class="section_bdr"></div>
+          </div>
+        </section>
+
+        <section id="step32">
+          <div class="container"> <br>
+            <h2>Step 32: Add Sign in with Apple Capability in Xcode</h2>
+            <div class="step-description">
+              <h4>🎯 What you'll do:</h4>
+              <p>Enable Sign in with Apple capability in your Xcode project.</p>
+              
+              <h4>🔧 Detailed Instructions:</h4>
+              <ul class="feature_list">
+                <li>Return to Xcode and select your project target</li>
+                <li>Go to 'Signing & Capabilities' tab</li>
+                <li>Click '+ Capability' button</li>
+                <li>Search for and add 'Sign in with Apple'</li>
+                <li>The capability will appear in your project settings</li>
+              </ul>
+              
+              <h4>📝 Important Note:</h4>
+              <p>This capability is required for apps that offer Sign in with Apple functionality.</p>
+            </div>
+            <span class="lightbox">
+              <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/32.png" alt="Add Apple Sign-In Capability"/>
+            </span>
+
+            <div class="success">
+              <h4>🎉 Setup Complete!</h4>
+              <p>Congratulations! You have successfully configured your iOS Authentication Template. Your app now has professional authentication with Firebase, Google Sign-In, and Apple Sign-In integration.</p>
+            </div>
             <div class="section_bdr"></div>
           </div>
         </section>
 
         <section id="customization">
           <div class="container"> <br>
-            <h2>How to customize theme?</h2>
+            <h2>🎨 Easy Customization</h2>
             
-            <p>Open <code>AppTheme.swift</code> to change colors and styling:</p>
-            
-            <h3>Colors</h3>
-            <ul class="feature_list">
-              <li><code>primaryColor</code> - Main app color</li>
-              <li><code>secondaryColor</code> - Secondary elements</li>
-              <li><code>accentColor</code> - Accent highlights</li>
-              <li><code>errorColor</code> - Error messages</li>
-              <li><code>successColor</code> - Success states</li>
-            </ul>
+            <h3>App Configuration</h3>
+            <p>Customize your app settings in <code>AppConfig.swift</code>:</p>
+            <div style="background: #1e1e1e; color: #d4d4d4; border-radius: 10px; padding: 20px; margin: 20px 0; overflow-x: auto; font-family: 'Monaco', 'Consolas', monospace;">
+struct AppConfig {
+    
+    // MARK: - App Information
+    static let appName = "Authentication Template"
+    static let appVersion = "1.0.0"
+    
+    // MARK: - Authentication Settings
+    static let minimumPasswordLength = 6
+    static let enableAppleSignIn = true
+    static let enableGoogleSignIn = true
+    static let enableEmailSignIn = true
+    static let requireEmailVerification = true
+    static let usernameMinLength = 4
+    static let usernameMaxLength = 16
+    
+    // MARK: - UI Configuration
+    static let animationDuration: Double = 0.8
+    static let cornerRadius: CGFloat = 16
+    static let shadowRadius: CGFloat = 8
+    
+    // MARK: - Features
+    static let enableBiometricAuth = false
+    static let enableRememberMe = true
+    static let enablePasswordReset = true
+}
+            </div>
 
-            <h3>Gradients</h3>
-            <ul class="feature_list">
-              <li><code>loginBackground</code> - Login screen background</li>
-              <li><code>cardBackground</code> - Card elements background</li>
-            </ul>
+            <h3>Theme Customization</h3>
+            <p>Modify your app's appearance in <code>AppTheme.swift</code>:</p>
+            <div style="background: #1e1e1e; color: #d4d4d4; border-radius: 10px; padding: 20px; margin: 20px 0; overflow-x: auto; font-family: 'Monaco', 'Consolas', monospace;">
+struct AppTheme {
+    
+    // MARK: - Colors
+    static let primaryColor: Color = .blue
+    static let secondaryColor: Color = .green
+    static let accentColor: Color = .purple
+    static let errorColor: Color = .red
+    static let warningColor: Color = .yellow
+    static let successColor: Color = .green
+    
+    // MARK: - Gradients
+    static let loginBackground = LinearGradient(
+        gradient: Gradient(colors: [
+            Color(red: 0.1, green: 0.1, blue: 0.2),
+            Color(red: 0.05, green: 0.05, blue: 0.15),
+            Color.black.opacity(0.95)
+        ]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    
+    static let cardBackground = LinearGradient(
+        colors: [
+            Color.white.opacity(0.15),
+            Color.white.opacity(0.08)
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    
+    // MARK: - Typography
+    static let titleFont: Font = .system(size: 28, weight: .bold, design: .rounded)
+    static let headlineFont: Font = .system(size: 18, weight: .semibold, design: .rounded)
+    static let bodyFont: Font = .system(size: 16, weight: .medium, design: .rounded)
+    static let captionFont: Font = .system(size: 14, weight: .medium)
+}
+            </div>
 
-            <h3>Typography</h3>
-            <ul class="feature_list">
-              <li><code>titleFont</code> - Page titles</li>
-              <li><code>headlineFont</code> - Section headers</li>
-              <li><code>bodyFont</code> - Body text</li>
-              <li><code>captionFont</code> - Small text</li>
-            </ul>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="localization">
-          <div class="container"> <br>
-            <h2>How to add languages?</h2>
-            
             <div class="success">
-              <h4>Pre-included Languages</h4>
-              <p>The template includes translations for:</p>
+              <h4>✅ Pre-included Languages</h4>
+              <p>The template includes complete translations for:</p>
               <ul class="feature_list">
-                <li><b>English</b> - Primary language</li>
-                <li><b>German (Deutsch)</b> - Complete translation</li>
-                <li><b>Arabic (العربية)</b> - Complete translation with RTL support</li>
+                <li><strong>English</strong> - Primary language</li>
+                <li><strong>German (Deutsch)</strong> - Complete translation</li>
+                <li><strong>Arabic (العربية)</strong> - Complete translation with RTL support</li>
               </ul>
             </div>
 
+            <h3>Adding Custom Colors</h3>
+            <p>You can easily add your brand colors:</p>
+            <div style="background: #1e1e1e; color: #d4d4d4; border-radius: 10px; padding: 20px; margin: 20px 0; overflow-x: auto; font-family: 'Monaco', 'Consolas', monospace;">
+// In AppTheme.swift
+static let brandPrimary = Color(red: 0.2, green: 0.6, blue: 1.0)
+static let brandSecondary = Color(red: 1.0, green: 0.3, blue: 0.5)
+            </div>
+
             <h3>Adding New Languages</h3>
+            <p>The template supports easy localization expansion:</p>
             <ul class="feature_list">
-              <li>In Xcode, right-click on <code>Localizable.strings</code></li>
-              <li>Select "Localize..."</li>
-              <li>Choose your target language</li>
-              <li>Copy strings from English version</li>
-              <li>Translate to your target language</li>
-              <li>Update your app's Info.plist with supported languages</li>
+              <li>Create new Localizable.strings file for your target language</li>
+              <li>In Xcode: File → New → File → Strings File</li>
+              <li>Name it: "Localizable.strings"</li>
+              <li>Localize: File Inspector → Localize → Add your language</li>
+              <li>Translate: Copy strings from English version and translate</li>
             </ul>
             <div class="section_bdr"></div>
           </div>
@@ -547,159 +1467,232 @@ code {
 
         <section id="troubleshooting">
           <div class="container"> <br>
-            <h2>Troubleshooting Guide</h2>
+            <h2>🔧 Troubleshooting Guide</h2>
             
-            <h3>🚫 Google Sign-In Not Working</h3>
-            <div class="note">
-              <p><b>Symptoms:</b> Button doesn't respond or shows error</p>
-              <p><b>Solutions:</b></p>
-              <ul class="feature_list">
-                <li>Verify REVERSED_CLIENT_ID in URL schemes</li>
-                <li>Check GoogleService-Info.plist is added to target</li>
-                <li>Test on physical device, not simulator</li>
-                <li>Ensure Bundle ID matches in Firebase and Xcode</li>
-              </ul>
-            </div>
-
-            <h3>🍎 Apple Sign-In Issues</h3>
-            <div class="note">
-              <p><b>Symptoms:</b> Apple Sign-In fails or doesn't appear</p>
-              <p><b>Solutions:</b></p>
-              <ul class="feature_list">
-                <li>Check "Sign in with Apple" capability is added</li>
-                <li>Verify App ID configuration in Developer Portal</li>
-                <li>Test on physical device with Apple ID</li>
-                <li>Ensure provisioning profile is correct</li>
-              </ul>
-            </div>
-
-            <h3>📧 Email Verification Problems</h3>
-            <div class="note">
-              <p><b>Symptoms:</b> Emails not received or links don't work</p>
-              <p><b>Solutions:</b></p>
-              <ul class="feature_list">
-                <li>Check spam/junk folders</li>
-                <li>Verify Firebase email settings</li>
-                <li>Test with different email providers</li>
-                <li>Check Firebase project configuration</li>
-              </ul>
-            </div>
-
-            <h3>🔥 Firebase Connection Issues</h3>
-            <div class="note">
-              <p><b>Symptoms:</b> App crashes or Firebase doesn't work</p>
-              <p><b>Solutions:</b></p>
-              <ul class="feature_list">
-                <li>Verify GoogleService-Info.plist is correct</li>
-                <li>Check Bundle ID matches everywhere</li>
-                <li>Ensure Firebase.configure() is called</li>
-                <li>Check internet connection</li>
-              </ul>
-            </div>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
-
-        <section id="buildapp">
-          <div class="container"> <br>
-            <h2>How to build and archive app?</h2>
+            <h3>Common Issues & Solutions</h3>
             
-            <h3>Development Build</h3>
-            <ul class="feature_list">
-              <li>Select your device or simulator</li>
-              <li>Press Cmd+R or click the Play button</li>
-              <li>Wait for build to complete</li>
-              <li>Test all authentication flows</li>
-            </ul>
+            <h4>🚫 Google Sign-In Not Working</h4>
+            <div class="warning">
+              <p><strong>Symptoms:</strong> Google Sign-In button doesn't respond or shows error</p>
+              <p><strong>Solutions:</strong></p>
+              <ul class="feature_list">
+                <li>✅ Verify REVERSED_CLIENT_ID in URL schemes matches GoogleService-Info.plist</li>
+                <li>✅ Ensure GoogleService-Info.plist is added to project target</li>
+                <li>✅ Check Google Sign-In is enabled in Firebase Console</li>
+                <li>✅ Test on physical device (not simulator)</li>
+                <li>✅ Verify Bundle ID matches exactly between Xcode and Firebase</li>
+              </ul>
+            </div>
 
-            <h3>Archive for Distribution</h3>
-            <ul class="feature_list">
-              <li>Select "Any iOS Device" as destination</li>
-              <li>Go to Product → Archive</li>
-              <li>Wait for archive to complete</li>
-              <li>Organizer will open with your archive</li>
-              <li>Click "Distribute App"</li>
-              <li>Choose distribution method (App Store, Ad Hoc, etc.)</li>
-            </ul>
+            <h4>🍎 Apple Sign-In Failing</h4>
+            <div class="warning">
+              <p><strong>Symptoms:</strong> Apple Sign-In shows error or doesn't appear</p>
+              <p><strong>Solutions:</strong></p>
+              <ul class="feature_list">
+                <li>✅ Check "Sign in with Apple" capability is added in Xcode</li>
+                <li>✅ Verify App ID is configured in Apple Developer Portal</li>
+                <li>✅ Test on physical device with valid Apple ID</li>
+                <li>✅ Ensure proper provisioning profile is selected</li>
+                <li>✅ Check Apple Sign-In is enabled in Firebase Console</li>
+              </ul>
+            </div>
 
-            <h3>Before Distribution</h3>
-            <ul class="feature_list">
-              <li>Update version and build numbers</li>
-              <li>Test on multiple devices</li>
-              <li>Verify all authentication methods work</li>
-              <li>Check app icons and launch screen</li>
-              <li>Test in different languages</li>
-            </ul>
-            <div class="section_bdr"></div>
-          </div>
-        </section>
+            <h4>📧 Email Verification Issues</h4>
+            <div class="warning">
+              <p><strong>Symptoms:</strong> Verification emails not received or links don't work</p>
+              <p><strong>Solutions:</strong></p>
+              <ul class="feature_list">
+                <li>✅ Check spam/junk folder in email client</li>
+                <li>✅ Verify Firebase email templates are properly configured</li>
+                <li>✅ Check authorized domains in Firebase Console</li>
+                <li>✅ Ensure Firebase project is properly set up</li>
+                <li>✅ Test with different email providers (Gmail, iCloud, etc.)</li>
+              </ul>
+            </div>
 
-        <section id="appstore">
-          <div class="container"> <br>
-            <h2>How to submit to App Store?</h2>
-            
-            <h3>App Store Connect Setup</h3>
-            <ul class="feature_list">
-              <li>Go to <a href="https://appstoreconnect.apple.com" style="color:#3498db">App Store Connect</a></li>
-              <li>Click "My Apps" → "+" → "New App"</li>
-              <li>Fill in app information</li>
-              <li>Set up app categories and age rating</li>
-              <li>Upload app screenshots and description</li>
-            </ul>
+            <h4>🔥 Firebase Connection Issues</h4>
+            <div class="warning">
+              <p><strong>Symptoms:</strong> App crashes on startup or Firebase functions don't work</p>
+              <p><strong>Solutions:</strong></p>
+              <ul class="feature_list">
+                <li>✅ Verify GoogleService-Info.plist is properly added to project</li>
+                <li>✅ Check Bundle ID matches exactly in all configurations</li>
+                <li>✅ Ensure Firebase.configure() is called in AppDelegate</li>
+                <li>✅ Verify Firebase products are properly imported</li>
+                <li>✅ Check Xcode console for specific Firebase error messages</li>
+              </ul>
+            </div>
 
-            <h3>Upload Build</h3>
-            <ul class="feature_list">
-              <li>Archive your app in Xcode</li>
-              <li>Click "Distribute App" in Organizer</li>
-              <li>Choose "App Store Connect"</li>
-              <li>Follow the upload process</li>
-              <li>Wait for processing (can take up to 24 hours)</li>
-            </ul>
+            <h4>🛠️ Build Errors</h4>
+            <div class="warning">
+              <p><strong>Symptoms:</strong> Project won't build or compile errors</p>
+              <p><strong>Solutions:</strong></p>
+              <ul class="feature_list">
+                <li>✅ Clean build folder: Product → Clean Build Folder</li>
+                <li>✅ Delete derived data: ~/Library/Developer/Xcode/DerivedData</li>
+                <li>✅ Check Swift Package Manager dependencies</li>
+                <li>✅ Verify minimum deployment target (iOS 15.0+)</li>
+                <li>✅ Update to latest Xcode version (15.0+)</li>
+                <li>✅ Restart Xcode and rebuild</li>
+              </ul>
+            </div>
 
-            <h3>Submit for Review</h3>
-            <ul class="feature_list">
-              <li>Select your processed build in App Store Connect</li>
-              <li>Complete all required app information</li>
-              <li>Add app review information and notes</li>
-              <li>Submit for review</li>
-              <li>Review process typically takes 24-48 hours</li>
-            </ul>
+            <h3>Debug Mode Setup</h3>
+            <div class="info">
+              <h4>💡 Enable Debug Logging</h4>
+              <p>Add this code to your App.swift for better troubleshooting:</p>
+              <div style="background: #1e1e1e; color: #d4d4d4; border-radius: 10px; padding: 20px; margin: 20px 0; overflow-x: auto; font-family: 'Monaco', 'Consolas', monospace;">
+// In App.swift
+import Firebase
+
+@main
+struct AuthenticationTemplateApp: App {
+    init() {
+        FirebaseApp.configure()
+        
+        #if DEBUG
+        // Enable Firebase debug logging
+        FirebaseConfiguration.shared.setLoggerLevel(.debug)
+        #endif
+    }
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+              </div>
+            </div>
+
+            <h3>Testing Checklist</h3>
+            <div class="info">
+              <h4>✅ Manual Testing Checklist</h4>
+              <ul class="feature_list">
+                <li>☐ Email registration with valid email</li>
+                <li>☐ Email registration with invalid email format</li>
+                <li>☐ Email verification process</li>
+                <li>☐ Email login with correct credentials</li>
+                <li>☐ Email login with incorrect credentials</li>
+                <li>☐ Google Sign-In flow (on device)</li>
+                <li>☐ Apple Sign-In flow (on device)</li>
+                <li>☐ Password reset functionality</li>
+                <li>☐ Username selection and validation</li>
+                <li>☐ Logout functionality</li>
+                <li>☐ Network error handling</li>
+                <li>☐ UI responsiveness on different devices</li>
+                <li>☐ Localization in all supported languages</li>
+                <li>☐ Accessibility features (VoiceOver)</li>
+                <li>☐ Dark mode compatibility</li>
+              </ul>
+            </div>
             <div class="section_bdr"></div>
           </div>
         </section>
 
         <section id="support">
           <div class="container">
-            <h2>Support & Contact</h2>
-            <p>If you need help with this iOS Authentication Template, here are your support options:</p>
-            
-            <h3>Documentation</h3>
+            <h2>📞 Support & Resources</h2>
+
+            <h3>What's Included in Your Purchase</h3>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h4>Complete SwiftUI Source Code</h4>
+                <p>MVVM architecture with comprehensive comments</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <h4>Firebase Integration</h4>
+                <p>Authentication and Firestore ready to use</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h4>Google & Apple Sign-In</h4>
+                <p>Complete implementation and setup guide</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">📧</div>
+                <h4>Email Verification</h4>
+                <p>Password reset flows included</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">👤</div>
+                <h4>Username Selection</h4>
+                <p>Real-time availability checking</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h4>Multi-Language Support</h4>
+                <p>English, German, Arabic with RTL</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h4>Dark Theme</h4>
+                <p>Customizable colors and styling</p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h4>Complete Documentation</h4>
+                <p>This guide plus online resources</p>
+              </div>
+            </div>
+
+            <h3>Next Steps After Setup</h3>
             <ul class="feature_list">
-              <li><b>Online Guide:</b> <a href="https://sami-projekts.github.io/ios-authentication-template-docs/" style="color:#3498db">Complete Setup Documentation</a></li>
-              <li><b>Video Tutorials:</b> Step-by-step video guides (coming soon)</li>
-              <li><b>FAQ:</b> Common questions and solutions</li>
+              <li><strong>Test Thoroughly</strong> - Use the testing checklist to verify all features work correctly</li>
+              <li><strong>Customize Branding</strong> - Update colors, fonts, and app name to match your brand</li>
+              <li><strong>Add Your Features</strong> - Build your app's unique functionality on top of the authentication system</li>
+              <li><strong>Configure Analytics</strong> - Set up Firebase Analytics and crash reporting</li>
+              <li><strong>Prepare for Store</strong> - Add app icons, screenshots, and store listing content</li>
+              <li><strong>Submit to App Store</strong> - Follow Apple's review guidelines for successful approval</li>
             </ul>
 
-            <h3>Direct Support</h3>
-            <ul class="feature_list">
-              <li><b>CodeCanyon Comments:</b> Ask questions on the item page</li>
-              <li><b>Private Message:</b> Contact through CodeCanyon messaging</li>
-              <li><b>Email Support:</b> Technical questions and customization help</li>
-            </ul>
+            <h3>Getting Help</h3>
+            <div class="info">
+              <h4>💬 Support Channels</h4>
+              <ul class="feature_list">
+                <li><strong>Documentation:</strong> <a href="https://sami-projekts.github.io/ios-authentication-template-docs/" style="color:#3498db">Complete Setup Guide</a></li>
+                <li><strong>CodeCanyon Comments:</strong> Ask questions on the item page</li>
+                <li><strong>Email Support:</strong> Contact through CodeCanyon messaging</li>
+                <li><strong>Video Tutorials:</strong> Step-by-step video guides available</li>
+              </ul>
+            </div>
 
-            <h3>Resources</h3>
+            <h3>Additional Resources</h3>
             <ul class="feature_list">
-              <li><b>Firebase Documentation:</b> <a href="https://firebase.google.com/docs/ios/setup" style="color:#3498db">Official Firebase iOS Guide</a></li>
-              <li><b>Apple Developer:</b> <a href="https://developer.apple.com/documentation/" style="color:#3498db">iOS Development Documentation</a></li>
-              <li><b>SwiftUI:</b> <a href="https://developer.apple.com/xcode/swiftui/" style="color:#3498db">SwiftUI Documentation</a></li>
+              <li><strong>Firebase Documentation:</strong> <a href="https://firebase.google.com/docs/ios/setup" style="color:#3498db">Official Firebase iOS Guide</a></li>
+              <li><strong>Apple Developer:</strong> <a href="https://developer.apple.com/documentation/" style="color:#3498db">iOS Development Documentation</a></li>
+              <li><strong>SwiftUI:</strong> <a href="https://developer.apple.com/xcode/swiftui/" style="color:#3498db">SwiftUI Documentation</a></li>
+              <li><strong>Google Sign-In:</strong> <a href="https://developers.google.com/identity/sign-in/ios" style="color:#3498db">Google Sign-In for iOS</a></li>
             </ul>
 
             <div class="success">
-              <h4>🎉 Thank You!</h4>
-              <p>Thank you for purchasing the iOS Authentication Template! This template provides a professional foundation for iOS apps with authentication. Focus on building your unique features while we handle the authentication complexity.</p>
+              <h4>🎉 Congratulations!</h4>
+              <p>You now have a professional, production-ready authentication system that would typically take weeks to develop from scratch. This template provides a solid foundation that follows iOS best practices and Firebase security guidelines.</p>
+              <p><strong>Focus on building your unique app features</strong> while the authentication handles user management seamlessly. Your users will enjoy a smooth, secure onboarding experience across all authentication methods.</p>
+            </div>
+
+            <div class="success">
+              <h4>📱 Ready for the App Store</h4>
+              <p>This template is designed to meet App Store review guidelines and includes:</p>
+              <ul class="feature_list">
+                <li>Privacy-compliant authentication flows</li>
+                <li>Proper error handling and user feedback</li>
+                <li>Accessibility support for all users</li>
+                <li>Responsive design for all iPhone sizes</li>
+                <li>Professional UI following iOS design principles</li>
+              </ul>
             </div>
             
-            <p class="append-bottom alt large">
+            <p style="text-align: center; margin: 40px 0; font-size: 18px;">
               <strong>Created with ❤️ by</strong><br />
               <strong><a style="color:#3498db" href="#" target="_blank">SamiDev Studio</a></strong>
             </p>
@@ -779,21 +1772,37 @@ document.querySelectorAll('.lightbox img').forEach(img => {
 });
 
 // Copy code functionality
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Visual feedback
+        event.target.style.background = '#4caf50';
+        event.target.style.color = 'white';
+        const originalText = event.target.innerHTML;
+        event.target.innerHTML = '✅ Copied!';
+        
+        setTimeout(() => {
+            event.target.style.background = '#e3f2fd';
+            event.target.style.color = '#1976d2';
+            event.target.innerHTML = originalText;
+        }, 2000);
+    });
+}
+
 document.querySelectorAll('code').forEach(code => {
-    code.style.cursor = 'pointer';
-    code.title = 'Click to copy';
-    
     code.addEventListener('click', function() {
         navigator.clipboard.writeText(this.textContent).then(() => {
             const originalText = this.textContent;
+            const originalBg = this.style.background;
+            const originalColor = this.style.color;
+            
             this.textContent = 'Copied!';
             this.style.background = '#2ecc71';
             this.style.color = 'white';
             
             setTimeout(() => {
                 this.textContent = originalText;
-                this.style.background = '#f4f4f4';
-                this.style.color = '#e74c3c';
+                this.style.background = originalBg;
+                this.style.color = originalColor;
             }, 2000);
         });
     });
