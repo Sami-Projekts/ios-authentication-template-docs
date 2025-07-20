@@ -1050,13 +1050,15 @@
                     </ul>
                     
                     <div class="copy-text" onclick="copyToClipboard(`rules_version = '2';
-            service cloud.firestore {
-              match /databases/{database}/documents {
-                match /users/{userId} {
-                  allow read, write: if request.auth != null && request.auth.uid == userId;
-                }
-              }
-            }`)">
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Erlaubt jedem Benutzer das Lesen, schränkt das Schreiben jedoch auf authentifizierte Benutzer ein
+    match /{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}`)">
                         📋 Sicherheitsregeln kopieren
                     </div>
                     
@@ -1488,39 +1490,75 @@
                 <h3>App Configuration</h3>
                 <p>Customize your app settings in <code>AppConfig.swift</code>:</p>
                 <div class="code-block">
-struct AppConfig {
-    static let appName = "Your App Name"
-    static let appVersion = "1.0.0"
-    static let bundleIdentifier = "com.yourcompany.yourapp"
-    
-    // Authentication Settings
-    static let enableEmailAuth = true
-    static let enableGoogleAuth = true
-    static let enableAppleAuth = true
-    
-    // UI Settings
-    static let cornerRadius: CGFloat = 12
-    static let animationDuration: Double = 0.3
-}
+                    struct AppConfig {
+                        
+                        // MARK: - App Information
+                        static let appName = "Authentication Template"
+                        static let appVersion = "1.0.0"
+                        
+                        // MARK: - Authentication Settings
+                        static let minimumPasswordLength = 6
+                        static let enableAppleSignIn = true
+                        static let enableGoogleSignIn = true
+                        static let enableEmailSignIn = true
+                        static let requireEmailVerification = true
+                        static let usernameMinLength = 4
+                        static let usernameMaxLength = 16
+                        
+                        // MARK: - UI Configuration
+                        static let animationDuration: Double = 0.8
+                        static let cornerRadius: CGFloat = 16
+                        static let shadowRadius: CGFloat = 8
+                        
+                        // MARK: - Features
+                        static let enableBiometricAuth = false
+                        static let enableRememberMe = true
+                        static let enablePasswordReset = true
+                    }
+
+
                 </div>
 
                 <h3>Theme Customization</h3>
                 <p>Modify your app's appearance in <code>AppTheme.swift</code>:</p>
                 <div class="code-block">
-struct AppTheme {
-    // Primary Colors
-    static let primaryColor = Color.blue
-    static let secondaryColor = Color.gray
-    static let accentColor = Color.orange
-    
-    // Background Colors
-    static let backgroundColor = Color.black
-    static let cardBackgroundColor = Color(.systemGray6)
-    
-    // Text Colors
-    static let primaryTextColor = Color.white
-    static let secondaryTextColor = Color.gray
-}
+                    struct AppTheme {
+                        
+                        // MARK: - Colors
+                        static let primaryColor: Color = .blue
+                        static let secondaryColor: Color = .green
+                        static let accentColor: Color = .purple
+                        static let errorColor: Color = .red
+                        static let warningColor: Color = .yellow
+                        static let successColor: Color = .green
+                        
+                        // MARK: - Gradients
+                        static let loginBackground = LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color(red: 0.1, green: 0.1, blue: 0.2),
+                                Color(red: 0.05, green: 0.05, blue: 0.15),
+                                Color.black.opacity(0.95)
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        
+                        static let cardBackground = LinearGradient(
+                            colors: [
+                                Color.white.opacity(0.15),
+                                Color.white.opacity(0.08)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        
+                        // MARK: - Typography
+                        static let titleFont: Font = .system(size: 28, weight: .bold, design: .rounded)
+                        static let headlineFont: Font = .system(size: 18, weight: .semibold, design: .rounded)
+                        static let bodyFont: Font = .system(size: 16, weight: .medium, design: .rounded)
+                        static let captionFont: Font = .system(size: 14, weight: .medium)
+                    }
+
                 </div>
 
                 <div class="success">
