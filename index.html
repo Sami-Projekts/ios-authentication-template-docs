@@ -671,14 +671,128 @@
                     </ul>
                 </div>
                 <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/1.png"
+                         alt="Package Dependencies in Xcode"
+                         onclick="openImageModal(this)">
+                    <p>Accessing Package Dependencies in Xcode with + button</p>
+                </div>
+
+                <!-- Step 3 -->
+                <h3>Step 3: Add Firebase iOS SDK</h3>
+                <div class="step-description">
+                    <h4>🔥 What you'll do:</h4>
+                    <p>Add the Firebase iOS SDK URL to your project to enable Firebase authentication and Firestore database functionality.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>In the "Add Package Dependency" window, paste the Firebase URL</li>
+                        <li>Enter: https://github.com/firebase/firebase-ios-sdk</li>
+                        <li>Click "Add Package" and wait for Xcode to resolve the package</li>
+                        <li>The package will be validated and ready for product selection</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">
+                        📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
+                    </div>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png"
+                         alt="Adding Firebase SDK URL"
+                         onclick="openImageModal(this)">
+                    <p>Entering Firebase iOS SDK repository URL</p>
+                </div>
+
+                <!-- Step 4 -->
+                <h3>Step 4: Select Firebase Products</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Choose the specific Firebase products your authentication system needs.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>After Xcode resolves the Firebase package, you'll see a list of available products</li>
+                        <li>Select <strong>FirebaseAuth</strong> - Essential for authentication</li>
+                        <li>Select <strong>FirebaseFirestore</strong> - For storing user data and usernames</li>
+                        <li>Select <strong>FirebaseStorage</strong> - For profile pictures (optional)</li>
+                        <li>Click "Add Package" to add these to your project</li>
+                    </ul>
+                    
+                    <h4>⚠️ Important:</h4>
+                    <p>Only select these three products to keep your app size manageable!</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
+                         alt="Firebase Products Selection"
+                         onclick="openImageModal(this)">
+                    <p>Selecting Firebase products: FirebaseAuth, FirebaseFirestore, and FirebaseStorage</p>
+                </div>
+
+                <!-- Step 5 -->
+                <h3>Step 5: Add Google Sign-In SDK</h3>
+                <div class="step-description">
+                    <h4>🌐 What you'll do:</h4>
+                    <p>Add the Google Sign-In iOS SDK to enable Google authentication in your app.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Click the "+" button again to add another package</li>
+                        <li>Enter the Google Sign-In iOS SDK URL</li>
+                        <li>Paste: https://github.com/google/GoogleSignIn-iOS</li>
+                        <li>Click "Add Package" and wait for resolution</li>
+                        <li>Select the GoogleSignIn product in the next step</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">
+                        📋 Copy Google Sign-In URL: https://github.com/google/GoogleSignIn-iOS
+                    </div>
+                    
+                    <h4>✅ Verification:</h4>
+                    <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
+                         alt="Google Sign-In SDK URL"
+                         onclick="openImageModal(this)">
+                    <p>Adding Google Sign-In iOS SDK repository URL</p>
+                </div>
+
+                <!-- Step 6 -->
+                <h3>Step 6: Create Firebase Project & Register iOS App</h3>
+                <div class="step-description">
+                    <h4>🎯 What you'll do:</h4>
+                    <p>Create a Firebase project and register your iOS app with the correct Bundle ID.</p>
+                    
+                    <h4>🔧 Detailed Instructions:</h4>
+                    <ul>
+                        <li>Go to https://console.firebase.google.com/ and create a new project</li>
+                        <li>Click the iOS icon to add an iOS app</li>
+                        <li>Enter your Bundle ID exactly as it appears in Xcode</li>
+                        <li>Make sure the Bundle ID matches perfectly (case-sensitive)</li>
+                        <li>Click 'Register app' to continue</li>
+                    </ul>
+                    
+                    <div class="copy-text" onclick="copyToClipboard('https://console.firebase.google.com/')">
+                        📋 Copy Firebase Console URL: https://console.firebase.google.com/
+                    </div>
+                    
+                    <h4>📝 Critical Note:</h4>
+                    <p>The Bundle ID must be identical to your Xcode project's Bundle Identifier!</p>
+                </div>
+                <div class="step-visual">
+                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
+                         alt="Google Sign-In Products Selection"
+                         onclick="openImageModal(this)">
+                    <p>Selecting Google Sign-In products and completing package installation</p>
+                </div>
+                <div class="step-visual">
                     <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/6.png" 
                          alt="Register iOS App in Firebase"
                          onclick="openImageModal(this)">
                     <p>Registering iOS app in Firebase with Bundle ID configuration</p>
                 </div>
 
-                <!-- Step 8 -->
-                <h3>Step 8: Find Bundle ID in Xcode</h3>
+                <!-- Step 7 -->
+                <h3>Step 7: Find Bundle ID in Xcode</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Locate your app's Bundle Identifier in Xcode to ensure it matches Firebase configuration.</p>
@@ -702,8 +816,8 @@
                     <p>Finding Bundle Identifier in Xcode General settings</p>
                 </div>
 
-                <!-- Step 9 -->
-                <h3>Step 9: Authentication Methods Overview</h3>
+                <!-- Step 8 -->
+                <h3>Step 8: Authentication Methods Overview</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>See the three main authentication methods that will be configured in Firebase.</p>
@@ -727,8 +841,8 @@
                     <p>Firebase Sign-in methods showing Email/Password, Google, and Apple authentication options</p>
                 </div>
 
-                <!-- Step 10 -->
-                <h3>Step 10: Available Authentication Methods</h3>
+                <!-- Step 9 -->
+                <h3>Step 9: Authentication Methods Overview</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>See which authentication methods we'll enable in Firebase Console.</p>
@@ -747,13 +861,13 @@
                 </div>
                 <div class="step-visual">
                     <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/9.png" 
-                         alt="Available Authentication Methods"
+                         alt="Authentication Methods"
                          onclick="openImageModal(this)">
                     <p>Available authentication methods in Firebase Console</p>
                 </div>
 
-                <!-- Step 11 -->
-                <h3>Step 11: Enable Email/Password Authentication</h3>
+                <!-- Step 10 -->
+                <h3>Step 10: Enable Email/Password Authentication</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Enable email and password sign-in for your users.</p>
@@ -777,8 +891,8 @@
                     <p>Enabling Email/Password authentication in Firebase</p>
                 </div>
 
-                <!-- Step 12 -->
-                <h3>Step 12: Enable Google Sign-In</h3>
+                <!-- Step 11 -->
+                <h3>Step 11: Enable Google Sign-In</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Configure Google Sign-In provider for easy user authentication.</p>
@@ -802,8 +916,8 @@
                     <p>Enabling and configuring Google Sign-In provider</p>
                 </div>
 
-                <!-- Step 13 -->
-                <h3>Step 13: Enable Apple Sign-In</h3>
+                <!-- Step 12 -->
+                <h3>Step 12: Enable Apple Sign-In</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Configure Apple as a sign-in provider in Firebase Console.</p>
@@ -826,8 +940,8 @@
                     <p>Enabling Apple Sign-In provider in Firebase</p>
                 </div>
 
-                <!-- Step 14 -->
-                <h3>Step 14: Verify Authentication Methods</h3>
+                <!-- Step 13 -->
+                <h3>Step 13: Verify Authentication Methods</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Confirm all three authentication methods are properly enabled.</p>
@@ -851,8 +965,8 @@
                     <p>All three authentication methods successfully enabled</p>
                 </div>
 
-                <!-- Step 15 -->
-                <h3>Step 15: Create Firestore Database</h3>
+                <!-- Step 14 -->
+                <h3>Step 14: Create Firestore Database</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Set up Firestore database to store user data and app information.</p>
@@ -876,8 +990,8 @@
                     <p>Creating Firestore Database for user data storage</p>
                 </div>
 
-                <!-- Step 16 -->
-                <h3>Step 16: Select Production Mode</h3>
+                <!-- Step 15 -->
+                <h3>Step 15: Select Production Mode</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Choose production mode for better security in your Firestore database.</p>
@@ -901,8 +1015,8 @@
                     <p>Selecting production mode for Firestore database</p>
                 </div>
 
-                <!-- Step 17 -->
-                <h3>Step 17: Access Firestore Rules</h3>
+                <!-- Step 16 -->
+                <h3>Step 16: Access Firestore Rules</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Navigate to the Rules section to configure database security.</p>
@@ -926,8 +1040,8 @@
                     <p>Accessing Firestore security rules configuration</p>
                 </div>
 
-                <!-- Step 18 -->
-                <h3>Step 18: Configure Firestore Security Rules</h3>
+                <!-- Step 17 -->
+                <h3>Step 17: Configure Firestore Security Rules</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Set up security rules to protect user data in Firestore.</p>
@@ -962,8 +1076,8 @@ service cloud.firestore {
                     <p>Configuring Firestore security rules for user data protection</p>
                 </div>
 
-                <!-- Step 19 -->
-                <h3>Step 19: Access Project Settings</h3>
+                <!-- Step 18 -->
+                <h3>Step 18: Access Project Settings</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Navigate to project settings to download the configuration file.</p>
@@ -987,8 +1101,8 @@ service cloud.firestore {
                     <p>Accessing Firebase project settings</p>
                 </div>
 
-                <!-- Step 20 -->
-                <h3>Step 20: Download Configuration File</h3>
+                <!-- Step 19 -->
+                <h3>Step 19: Download Configuration File</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Download the GoogleService-Info.plist file for your iOS app.</p>
@@ -1012,8 +1126,8 @@ service cloud.firestore {
                     <p>Downloading GoogleService-Info.plist configuration file</p>
                 </div>
 
-                <!-- Step 21 -->
-                <h3>Step 21: Add GoogleService-Info.plist to Xcode</h3>
+                <!-- Step 20 -->
+                <h3>Step 20: Add GoogleService-Info.plist to Xcode</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Add the Firebase configuration file to your Xcode project and copy the REVERSED_CLIENT_ID.</p>
@@ -1037,8 +1151,8 @@ service cloud.firestore {
                     <p>Adding GoogleService-Info.plist to Xcode and copying REVERSED_CLIENT_ID</p>
                 </div>
 
-                <!-- Step 22 -->
-                <h3>Step 22: Configure URL Scheme for Google Sign-In</h3>
+                <!-- Step 21 -->
+                <h3>Step 21: Configure URL Scheme for Google Sign-In</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Set up URL scheme in Xcode to handle Google Sign-In callbacks.</p>
@@ -1062,8 +1176,8 @@ service cloud.firestore {
                     <p>Configuring URL scheme with REVERSED_CLIENT_ID for Google Sign-In</p>
                 </div>
 
-                <!-- Step 23 -->
-                <h3>Step 23: Copy CLIENT_ID from GoogleService-Info.plist</h3>
+                <!-- Step 22 -->
+                <h3>Step 22: Copy CLIENT_ID from GoogleService-Info.plist</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Find and copy the CLIENT_ID value for Firebase configuration.</p>
@@ -1087,8 +1201,8 @@ service cloud.firestore {
                     <p>Copying CLIENT_ID from GoogleService-Info.plist</p>
                 </div>
 
-                <!-- Step 24 -->
-                <h3>Step 24: Add CLIENT_ID to Firebase Configuration</h3>
+                <!-- Step 23 -->
+                <h3>Step 23: Add CLIENT_ID to Firebase Configuration</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Configure CLIENT_ID in your app target for Firebase Google Sign-In.</p>
@@ -1112,8 +1226,8 @@ service cloud.firestore {
                     <p>Adding CLIENT_ID to app target configuration</p>
                 </div>
 
-                <!-- Step 25 -->
-                <h3>Step 25: Access Apple Developer Portal</h3>
+                <!-- Step 24 -->
+                <h3>Step 24: Access Apple Developer Portal</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Navigate to Apple Developer Portal to configure App ID for Sign in with Apple.</p>
@@ -1141,8 +1255,8 @@ service cloud.firestore {
                     <p>Accessing Apple Developer Portal Identifiers section</p>
                 </div>
 
-                <!-- Step 26 -->
-                <h3>Step 26: Create New Identifier</h3>
+                <!-- Step 25 -->
+                <h3>Step 25: Create New Identifier</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Add a new App ID identifier for your iOS application.</p>
@@ -1166,8 +1280,8 @@ service cloud.firestore {
                     <p>Creating a new App ID identifier</p>
                 </div>
 
-                <!-- Step 27 -->
-                <h3>Step 27: Select App ID Type</h3>
+                <!-- Step 26 -->
+                <h3>Step 26: Select App ID Type</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Choose the App ID type for your application.</p>
@@ -1191,8 +1305,8 @@ service cloud.firestore {
                     <p>Selecting App type for the new App ID</p>
                 </div>
 
-                <!-- Step 28 -->
-                <h3>Step 28: Continue App ID Setup</h3>
+                <!-- Step 27 -->
+                <h3>Step 27: Continue App ID Setup</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Proceed with the App ID configuration process.</p>
@@ -1216,8 +1330,8 @@ service cloud.firestore {
                     <p>Continuing with App ID configuration</p>
                 </div>
 
-                <!-- Step 29 -->
-                <h3>Step 29: Configure Bundle ID</h3>
+                <!-- Step 28 -->
+                <h3>Step 28: Configure Bundle ID</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Enter your app's Bundle ID exactly as it appears in Xcode.</p>
@@ -1241,8 +1355,8 @@ service cloud.firestore {
                     <p>Configuring Bundle ID in Apple Developer Portal</p>
                 </div>
 
-                <!-- Step 30 -->
-                <h3>Step 30: Register App ID</h3>
+                <!-- Step 29 -->
+                <h3>Step 29: Register App ID</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Complete the App ID registration process.</p>
@@ -1266,8 +1380,8 @@ service cloud.firestore {
                     <p>Registering the new App ID</p>
                 </div>
 
-                <!-- Step 31 -->
-                <h3>Step 31: Navigate to Keys Section</h3>
+                <!-- Step 30 -->
+                <h3>Step 30: Navigate to Keys Section</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Create a new key for Sign in with Apple authentication.</p>
@@ -1291,8 +1405,8 @@ service cloud.firestore {
                     <p>Accessing Keys section in Apple Developer Portal</p>
                 </div>
 
-                <!-- Step 32 -->
-                <h3>Step 32: Create Apple Sign-In Key</h3>
+                <!-- Step 31 -->
+                <h3>Step 31: Create Apple Sign-In Key</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Configure a new key for Sign in with Apple service.</p>
@@ -1316,8 +1430,8 @@ service cloud.firestore {
                     <p>Creating and configuring key for Sign in with Apple</p>
                 </div>
 
-                <!-- Step 33 -->
-                <h3>Step 33: Configure Key for App ID</h3>
+                <!-- Step 32 -->
+                <h3>Step 32: Configure Key for App ID</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Associate your key with the App ID you created earlier.</p>
@@ -1341,8 +1455,8 @@ service cloud.firestore {
                     <p>Associating Sign in with Apple key with your App ID</p>
                 </div>
 
-                <!-- Step 34 -->
-                <h3>Step 34: Add Sign in with Apple Capability in Xcode</h3>
+                <!-- Step 33 -->
+                <h3>Step 33: Add Sign in with Apple Capability in Xcode</h3>
                 <div class="step-description">
                     <h4>🎯 What you'll do:</h4>
                     <p>Enable Sign in with Apple capability in your Xcode project.</p>
@@ -1656,137 +1770,4 @@ struct AppTheme {
         });
     </script>
 </body>
-</html>ios-authentication-template-docs/main/1.png"
-                         alt="Package Dependencies in Xcode"
-                         onclick="openImageModal(this)">
-                    <p>Accessing Package Dependencies in Xcode with + button</p>
-                </div>
-
-                <!-- Step 3 -->
-                <h3>Step 3: Add Firebase iOS SDK</h3>
-                <div class="step-description">
-                    <h4>🔥 What you'll do:</h4>
-                    <p>Add the Firebase iOS SDK URL to your project to enable Firebase authentication and Firestore database functionality.</p>
-                    
-                    <h4>🔧 Detailed Instructions:</h4>
-                    <ul>
-                        <li>In the "Add Package Dependency" window, paste the Firebase URL</li>
-                        <li>Enter: https://github.com/firebase/firebase-ios-sdk</li>
-                        <li>Click "Add Package" and wait for Xcode to resolve the package</li>
-                        <li>The package will be validated and ready for product selection</li>
-                    </ul>
-                    
-                    <div class="copy-text" onclick="copyToClipboard('https://github.com/firebase/firebase-ios-sdk')">
-                        📋 Copy Firebase URL: https://github.com/firebase/firebase-ios-sdk
-                    </div>
-                </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/2.png"
-                         alt="Adding Firebase SDK URL"
-                         onclick="openImageModal(this)">
-                    <p>Entering Firebase iOS SDK repository URL</p>
-                </div>
-
-                <!-- Step 4 -->
-                <h3>Step 4: Select Firebase Products</h3>
-                <div class="step-description">
-                    <h4>🎯 What you'll do:</h4>
-                    <p>Choose the specific Firebase products your authentication system needs.</p>
-                    
-                    <h4>🔧 Detailed Instructions:</h4>
-                    <ul>
-                        <li>After Xcode resolves the Firebase package, you'll see a list of available products</li>
-                        <li>Select <strong>FirebaseAuth</strong> - Essential for authentication</li>
-                        <li>Select <strong>FirebaseFirestore</strong> - For storing user data and usernames</li>
-                        <li>Select <strong>FirebaseStorage</strong> - For profile pictures (optional)</li>
-                        <li>Click "Add Package" to add these to your project</li>
-                    </ul>
-                    
-                    <h4>⚠️ Important:</h4>
-                    <p>Only select these three products to keep your app size manageable!</p>
-                </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/3.png" 
-                         alt="Firebase Products Selection"
-                         onclick="openImageModal(this)">
-                    <p>Selecting Firebase products: FirebaseAuth, FirebaseFirestore, and FirebaseStorage</p>
-                </div>
-
-                <!-- Step 5 -->
-                <h3>Step 5: Add Google Sign-In SDK</h3>
-                <div class="step-description">
-                    <h4>🌐 What you'll do:</h4>
-                    <p>Add the Google Sign-In iOS SDK to enable Google authentication in your app.</p>
-                    
-                    <h4>🔧 Detailed Instructions:</h4>
-                    <ul>
-                        <li>Click the "+" button again to add another package</li>
-                        <li>Enter the Google Sign-In iOS SDK URL</li>
-                        <li>Paste: https://github.com/google/GoogleSignIn-iOS</li>
-                        <li>Click "Add Package" and wait for resolution</li>
-                        <li>Select the GoogleSignIn product in the next step</li>
-                    </ul>
-                    
-                    <div class="copy-text" onclick="copyToClipboard('https://github.com/google/GoogleSignIn-iOS')">
-                        📋 Copy Google Sign-In URL: https://github.com/google/GoogleSignIn-iOS
-                    </div>
-                    
-                    <h4>✅ Verification:</h4>
-                    <p>After installation, you should see both Firebase and GoogleSignIn in your Package Dependencies list.</p>
-                </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/4.png" 
-                         alt="Google Sign-In SDK URL"
-                         onclick="openImageModal(this)">
-                    <p>Adding Google Sign-In iOS SDK repository URL</p>
-                </div>
-
-                <!-- Step 6 -->
-                <h3>Step 6: Create Firebase Project & Register iOS App</h3>
-                <div class="step-description">
-                    <h4>🎯 What you'll do:</h4>
-                    <p>Create a Firebase project and register your iOS app with the correct Bundle ID.</p>
-                    
-                    <h4>🔧 Detailed Instructions:</h4>
-                    <ul>
-                        <li>Go to https://console.firebase.google.com/ and create a new project</li>
-                        <li>Click the iOS icon to add an iOS app</li>
-                        <li>Enter your Bundle ID exactly as it appears in Xcode</li>
-                        <li>Make sure the Bundle ID matches perfectly (case-sensitive)</li>
-                        <li>Click 'Register app' to continue</li>
-                    </ul>
-                    
-                    <div class="copy-text" onclick="copyToClipboard('https://console.firebase.google.com/')">
-                        📋 Copy Firebase Console URL: https://console.firebase.google.com/
-                    </div>
-                    
-                    <h4>📝 Critical Note:</h4>
-                    <p>The Bundle ID must be identical to your Xcode project's Bundle Identifier!</p>
-                </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/ios-authentication-template-docs/main/5.png" 
-                         alt="Google Sign-In Products Selection"
-                         onclick="openImageModal(this)">
-                    <p>Selecting Google Sign-In products and completing package installation</p>
-                </div>
-
-                <!-- Step 7 -->
-                <h3>Step 7: Find Bundle ID in Xcode</h3>
-                <div class="step-description">
-                    <h4>🎯 What you'll do:</h4>
-                    <p>Locate your app's Bundle Identifier in Xcode to ensure it matches Firebase configuration.</p>
-                    
-                    <h4>🔧 Detailed Instructions:</h4>
-                    <ul>
-                        <li>In Xcode, select your project in the navigator</li>
-                        <li>Click on your target under "TARGETS"</li>
-                        <li>Go to the "General" tab</li>
-                        <li>Find "Bundle Identifier" in the Identity section</li>
-                        <li>Copy this exact value to use in Firebase</li>
-                    </ul>
-                    
-                    <h4>📝 Important Note:</h4>
-                    <p>This Bundle ID must match exactly between Xcode and Firebase - including capitalization and punctuation.</p>
-                </div>
-                <div class="step-visual">
-                    <img src="https://raw.githubusercontent.com/Sami-Projekts/
+</html>
